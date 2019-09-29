@@ -19,11 +19,15 @@ if ($result->num_rows > 0) {
                 header("Location: ../staffhome.php?myid=$id");
             }else{
                 $_SESSION['message']['success'] = "<center><span class='col-pink'>Invalid Username Password..!</span><center>";
-                header('Location: ../index.php');
+                header('Location: ../invalid_user.php');
             }
          }else{
             $_SESSION['message']['success'] = "<center><span class='col-pink'>Account Not Activated..!</span><center>";
-            header('Location: ../index.php');
+            header('Location: ../invalid_user.php');
          }
     }
+}else{
+    $_SESSION['message']['success'] = "<center><span class='col-pink'>Invalid Username Password..!</span><center>";
+    header('Location: ../invalid_user.php');
+
 }

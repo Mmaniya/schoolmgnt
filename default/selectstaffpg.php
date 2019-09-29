@@ -4,7 +4,7 @@ $selectyear = $_REQUEST['selectyear'];
 $selectsemeter = $_REQUEST['selectsemeter'];
 $subject = $_REQUEST['subject1'];
 
-$sqlexperience = "SELECT  MAX(experience) as  experience FROM `ugpreference` WHERE `status`= '1'";
+$sqlexperience = "SELECT  MAX(experience) as  experience FROM `pgpreference` WHERE `status`= '1'";
 $resultone = $conn->query($sqlexperience);										
 if ($resultone->num_rows > 0) {
     while($rowone = $resultone->fetch_assoc()) {
@@ -12,7 +12,7 @@ if ($resultone->num_rows > 0) {
     }
 }
 
- $sql = "SELECT  * FROM `ugpreference` WHERE `experience`= '$experie' AND `subject1`='$subject' OR `subject2`='$subject' OR `subject3`='$subject' OR `lab`='$subject' AND `semester`='$selectsemeter' AND `year`='$selectyear'";
+ $sql = "SELECT  * FROM `pgpreference` WHERE `experience`= '$experie' AND `subject1`='$subject' OR `subject2`='$subject' OR `subject3`='$subject' OR `lab`='$subject' AND `semester`='$selectsemeter' AND `year`='$selectyear'";
  $result = $conn->query($sql);										
  if ($result->num_rows > 0) {
      while($row = $result->fetch_assoc()) {
@@ -178,7 +178,7 @@ if ($resultone->num_rows > 0) {
                                             <div class="col-lg-12">
                                                 <div class="cover-profile">
                                                     <div class="profile-bg-img">
-                                                       <form action="function/appoinment.php">
+                                                       <form action="function/pgappoinment.php">
                                                        <input type="hidden" value="UG" name="dept">
                                                        <input type="hidden" value="<?php echo $staffid; ?>" name="staffname">
                                                        <input type="hidden" value="<?php echo $imageURL; ?>" name="imageURL">

@@ -46,7 +46,7 @@
                                     </a>
                                 </li>
                                 <li class="pcoded-hasmenu">
-                                <a href="#">
+                                <a href="staffreport.php?myid=<?php echo $staffid; ?>">
                                     <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
                                     <span class="pcoded-mtext">Report</span>
                                 </a>
@@ -55,21 +55,21 @@
                             <div class="pcoded-navigatio-lavel">PG</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu">
-                                    <a href="#">
+                                <a href="pg_preference.php?myid=<?php echo $staffid; ?>">
                                         <span class="pcoded-micon"><i class="feather icon-credit-card"></i></span>
                                         <span class="pcoded-mtext">Add Class</span>
                                     </a>
                               
                                 </li>
                                 <li class="pcoded-hasmenu">
-                                    <a href="#">
+                                <a href="view_pgpreference.php?myid=<?php echo $staffid; ?>">
                                         <span class="pcoded-micon"><i class="feather icon-inbox"></i></span>
                                         <span class="pcoded-mtext">View Class</span>
                                     </a>
                             
                                 </li>
                                 <li class="pcoded-hasmenu">
-                                <a href="#">
+                                <a href="staffpgreport.php?myid=<?php echo $staffid; ?>">
                                     <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
                                     <span class="pcoded-mtext">Report</span>
                                 </a>

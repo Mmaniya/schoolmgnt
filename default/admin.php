@@ -91,18 +91,12 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-md-10">
-                                            <p class="text-inverse text-left m-b-0">Thank you.</p>
+                                            <p class="text-inverse text-left m-b-0">Log In.</p>
                                             <p class="text-inverse text-left"><a href="index.php"><b class="f-w-600">Staff Login</b></a></p>
                                         </div>
                                         
                                     </div>
-                                    <span>
-                                    <?php
-                                    if (isset($_SESSION['message']['success']) && $_SESSION['message']['success'] != '') {
-                                        echo $_SESSION['message']['success'];
-                                        unset($_SESSION['message']);
-                                    }
-                                    ?></span>
+                                 
                                 </div>
                             </div>
                         </form>

@@ -226,7 +226,7 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
                                                                     <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Semester 3 Lab</label>
                                                                     <div class="col-sm-10">
-                                                                        <select name="lab" class="form-control">
+                                                                        <select name="labs" class="form-control">
                                                                             <option value ='' disabled selected>Select Preferred Lab </option>
                                                                             <option value="15I310">Data structures laboratory</option>
                                                                             <option value="15I311">Digital logic design laboratory</option>                                                                                                                                     
@@ -273,7 +273,7 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
                                                                     <div class="form-group row">
                                                                     <label class="col-sm-2 col-form-label">Semester 4 Lab</label>
                                                                     <div class="col-sm-10">
-                                                                        <select name="lab" class="form-control">
+                                                                        <select name="labs" class="form-control">
                                                                             <option value ='' disabled selected>Select Preferred Lab </option>
                                                                             <option value="15I410">Operating systems laboratory</option>
                                                                             <option value="15I411">Database management systems laboratory</option>                                                                                                                                     

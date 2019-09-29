@@ -203,7 +203,7 @@ $staffid = $_REQUEST['myid'];
                                                             </thead>
                                                             <tbody>
                                                                 <?php 
-                                                                 $sql = "SELECT * FROM `ugpreference` WHERE staffid='$staffid' AND status='1'";
+                                                                 $sql = "SELECT * FROM `pgpreference` WHERE staffid='$staffid' AND status='1'";
                                                                  $result = $conn->query($sql);										
                                                                  if ($result->num_rows > 0) {
                                                                      while($row = $result->fetch_assoc()) {

@@ -5,7 +5,13 @@
 
 <head>
     <title>Admin</title>
-
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\bootstrap\css\bootstrap.min.css">
     <!-- themify-icons line icon -->
     <link rel="stylesheet" type="text/css" href="..\files\assets\icon\themify-icons\themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="..\files\assets\icon\feather\css\feather.css">
     <!-- ico font -->
     <link rel="stylesheet" type="text/css" href="..\files\assets\icon\icofont\css\icofont.css">
     <!-- Style.css -->
@@ -28,85 +35,71 @@
 <body class="fix-menu">
     <!-- Pre-loader start -->
     <div class="theme-loader">
-        <div class="ball-scale">
-            <div class='contain'>
-                <div class="ring"><div class="frame"></div></div>
-                <div class="ring"><div class="frame"></div></div>
-                <div class="ring"><div class="frame"></div></div>
-                <div class="ring"><div class="frame"></div></div>
-                <div class="ring"><div class="frame"></div></div>
-                <div class="ring"><div class="frame"></div></div>
-                <div class="ring"><div class="frame"></div></div>
-                <div class="ring"><div class="frame"></div></div>
-                <div class="ring"><div class="frame"></div></div>
-                <div class="ring"><div class="frame"></div></div>
-            </div>
+    <div class="ball-scale">
+        <div class='contain'>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
         </div>
     </div>
+</div>
     <!-- Pre-loader end -->
-
     <section class="login-block">
         <!-- Container-fluid starts -->
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
-                    <!-- Authentication card start -->
-                    
-                        <form class="md-float-material form-material" action="function/login_function.php">
-                            
-                            <div class="auth-box card">
-                                <div class="card-block">
-                                    <div class="row m-b-20">
-                                        <div class="col-md-12">
-                                            <h3 class="text-center">Sign In</h3>
-                                        </div>
+                    <!-- Login card start -->
+                    <form class="md-float-material form-material">
+                        <!-- <div class="text-center">
+                            <img src="..\files\assets\images\logo.png" alt="logo.png">
+                        </div> -->
+                        <div class="auth-box card">
+                            <div class="card-block">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3 class="text-center"><i class="feather icon-lock text-primary f-60 p-t-15 p-b-20 d-block"></i></h3>
                                     </div>
-                                    <div class="form-group form-primary">
-                                        <input type="email" name="useremail" class="form-control" required="" placeholder="Your Email Address">
-                                        <span class="form-bar"></span>
-                                    </div>
-                                    <div class="form-group form-primary">
-                                        <input type="password" name="password" class="form-control" required="" placeholder="Password">
-                                        <span class="form-bar"></span>
-                                    </div>
-                                    <div class="row m-t-25 text-left">
-                                        <div class="col-12">
-                                            <div class="checkbox-fade fade-in-primary d-">
-                                                <label>
-                                                    <input type="checkbox" value="">
-                                                    <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                                    <span class="text-inverse">Remember me</span>
-                                                </label>
-                                            </div>
-                                            <div class="forgot-phone text-right f-right">
-                                                <a href="signup.php" class="text-right f-w-600">Create Account</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row m-t-30">
-                                        <div class="col-md-12">
-                                            <input type="submit" class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20" value="Sign in">
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-10">
-                                            <p class="text-inverse text-left m-b-0">Log In.</p>
-                                            <p class="text-inverse text-left"><a href="admin.php"><b class="f-w-600">Admin Login</b></a></p>
-                                        </div>
-                                        
-                                    </div>
-                                    <span>
+                                </div>
+                                <div class="form-group form-primary">
+                                <span>
                                     <?php
                                     if (isset($_SESSION['message']['success']) && $_SESSION['message']['success'] != '') {
                                         echo $_SESSION['message']['success'];
                                         unset($_SESSION['message']);
                                     }
                                     ?></span>
+                                    <!-- <input type="text" name="email" class="form-control" required="" placeholder="Your Email Address"> -->
+                                    <span class="form-bar"></span>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"><i class="icofont icofont-lock"></i> Lock Screen </button>
+                                    </div>
+                                </div>
+                                <!-- <p class="text-inverse text-left"><a href="index.php"><b class="f-w-600">Staff Login</b></a></p> -->
+                                <p ><span class="text-inverse text-left"><a href="index.php">Staff Login</span> <span class="text-inverse text-right" style="margin-left:50%;"><a href="admin.php">Admin Login</a></span></p>
+
+                                <!-- <div class="row">
+                                    <div class="col-md-10">
+                                        <p class="text-inverse text-left m-b-0">Thank you.</p>
+                                        <p class="text-inverse text-left"><a href="index.php"><b class="f-w-600">Staff Login</b></a></p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="..\files\assets\images\auth\Logo-small-bottom.png" alt="small-logo.png">
+                                    </div>
+                                </div> -->
                             </div>
-                        </form>
-                        <!-- end of form -->
+                        </div>
+                    </form>
+                    <!-- Login card end -->
                 </div>
                 <!-- end of col-sm-12 -->
             </div>
@@ -173,7 +166,10 @@
     <script type="text/javascript" src="..\files\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js"></script>
     <script type="text/javascript" src="..\files\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js"></script>
     <script type="text/javascript" src="..\files\bower_components\jquery-i18next\js\jquery-i18next.min.js"></script>
+    <!--Color Script Common-->
     <script type="text/javascript" src="..\files\assets\js\common-pages.js"></script>
+
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>

@@ -2,10 +2,28 @@
 include('../db/dpconfig.php');
 $staffid = $_REQUEST['myid'];
 
- $sql = "SELECT * FROM `staff` WHERE id='$staffid' AND status='1'";
- $result = $conn->query($sql);										
- if ($result->num_rows > 0) {
-     while($row = $result->fetch_assoc()) {
+$sql = "SELECT * FROM `ugtimetable` WHERE `staffid`='$staffid'";
+$result = $conn->query($sql);										
+if ($result->num_rows > 0) {
+    while($rows = $result->fetch_assoc()) {
+
+            $subject = $rows["subject"];	
+            $lab = $rows["lab"];	
+            $dept = $rows['dept'];
+            $year = $rows['year'];
+            $sem = $rows['sem'];
+            $status = $rows['status'];
+
+            $imageURL = 'function/uploads/'.$rows['image'];
+        }
+       }
+
+
+
+ $sql1 = "SELECT * FROM `staff` WHERE id='$staffid' AND status='1'";
+ $results = $conn->query($sql1);										
+ if ($results->num_rows > 0) {
+     while($row = $results->fetch_assoc()) {
          $name = $row["name"];	
          $id = $row["id"];	
          $email = $row['email'];
@@ -15,15 +33,20 @@ $staffid = $_REQUEST['myid'];
          $imageURL = 'function/uploads/'.$row['profile'];
      }
     }
-    
     ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Staff Page </title>
-
+    <title>Admin Page </title>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -117,7 +140,7 @@ $staffid = $_REQUEST['myid'];
                                         <div class="col-lg-8">
                                             <div class="page-header-title">
                                                 <div class="d-inline">
-                                                    <h4>View Class Status</h4>
+                                                    <h4>My Profile</h4>
                                                     <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
                                                 </div>
                                             </div>
@@ -146,6 +169,8 @@ $staffid = $_REQUEST['myid'];
                                             <div class="col-lg-12">
                                                 <div class="cover-profile">
                                                     <div class="profile-bg-img">
+                                                       <form action="#">
+
                                                         <img class="profile-bg-img img-fluid" src="..\files\assets\images\user-profile\bg-img1.jpg" alt="bg-img">
                                                         <div class="card-block user-info">
                                                             <div class="col-md-12">
@@ -162,14 +187,17 @@ $staffid = $_REQUEST['myid'];
                                                                         </div>
                                                                     </div>
                                                                     <div>
+                                                                    <?php if($status == '1'){?>
                                                                         <div class="pull-right cover-btn">
-                                                                            <button type="button" class="btn btn-primary m-r-10 m-b-5"><i class="icofont icofont-plus"></i> Follow</button>
-                                                                            <button type="button" class="btn btn-primary"><i class="icofont icofont-ui-messaging"></i> Message</button>
+                                                                            <button type="button" class="btn btn-success m-r-10 m-b-5">Appointmented</button>
+                                                                            <!-- <button type="button" class="btn btn-success"><i class="icofont icofont-ui-messaging"></i> Message</button> -->
                                                                         </div>
+                                                                    <?php } ?>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                       </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -177,68 +205,116 @@ $staffid = $_REQUEST['myid'];
                                         <!--profile cover end-->
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                
+                                                <!-- tab header start -->
+                                                <div class="tab-header card">
+                                                    <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist" id="mytab">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link active" data-toggle="tab" href="#personal" role="tab">Personal Info</a>
+                                                            <div class="slide"></div>
+                                                        </li>
+                                                        <!-- <li class="nav-item">
+                                                            <a class="nav-link" data-toggle="tab" href="#binfo" role="tab">User's Services</a>
+                                                            <div class="slide"></div>
+                                                        </li> -->
+                                                        <!-- <li class="nav-item">
+                                                            <a class="nav-link" data-toggle="tab" href="#contacts" role="tab">User's Contacts</a>
+                                                            <div class="slide"></div>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-toggle="tab" href="#review" role="tab">Reviews</a>
+                                                            <div class="slide"></div>
+                                                        </li> -->
+                                                    </ul>
+                                                </div>
                                                 <!-- tab header end -->
-                                                <!-- Default ordering table start -->
-                                                <div class="card">
-                                                <div class="card-header">
-                                                    <h5>Default Ordering</h5>
-                                                    <!-- <span>Lets say you want to sort the fourth column (3) descending and the first column (0) ascending: your order: would look like this: order: [[ 3, 'desc' ], [ 0, 'asc' ]]</span> -->
+                                                <!-- tab content start -->
+                                                <div class="tab-content">
+                                                    <!-- tab panel personal start -->
+                                                    <div class="tab-pane active" id="personal" role="tabpanel">
+                                                        <!-- personal card start -->
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <h5 class="card-header-text">Approved</h5>
+                                                                
+                                                            </div>
+                                                            <div class="card-block">
+                                                                <div class="view-info">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-12">
+                                                                            <div class="general-info">
+                                                                                <div class="row">
+                                                                                    <div class="col-lg-12 col-xl-6">
+                                                                                        <div class="table-responsive">
+                                                                                            <table class="table m-0">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <th scope="row">Full Name</th>
+                                                                                                        <td><?php echo $name; ?> </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <th scope="row">Year</th>
+                                                                                                        <td><?php echo $year; ?> </td>
+                                                                                                    </tr>
+                                                                                                    
+                                                                                                    <tr>
+                                                                                                        <th scope="row">Subject</th>
+                                                                                                        <td><?php echo $subject; ?> </td>
+                                                                                                    </tr>
+                                                                                                    
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <!-- end of table col-lg-6 -->
+                                                                                    <div class="col-lg-12 col-xl-6">
+                                                                                        <div class="table-responsive">
+                                                                                            <table class="table">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <th scope="row">Experience</th>
+                                                                                                        <td><?php echo $experience; ?></td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <th scope="row">Semester</th>
+                                                                                                        <td><?php echo $sem; ?></td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <th scope="row">Lab</th>
+                                                                                                        <td><?php echo $lab; ?></td>
+                                                                                                    </tr>                                                                                                                                                                                                    
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <!-- end of table col-lg-6 -->
+                                                                                </div>
+                                                                                <!-- end of row -->
+                                                                            </div>
+                                                                            <!-- end of general info -->
+                                                                        </div>
+                                                                        <!-- end of col-lg-12 -->
+                                                                    </div>
+                                                                    <!-- end of row -->
+                                                                </div>
+                                                                
+                                                                        </div>
+                                                                        <!-- end of col-lg-12 -->
+                                                                    </div>
+                                                                    <!-- end of row -->
+                                                                </div>
+                                                                <!-- end of edit-info -->
+                                                            </div>
+                                                            <!-- end of card-block -->
+                                                        </div>
 
-                                                </div>
-                                                <div class="card-block">
-                                                    <div class="dt-responsive table-responsive">
-                                                        <table id="order-table" class="table table-striped table-bordered nowrap">
-                                                            <thead>
-                                                            <tr>
-                                                                <th>Depr</th>
-                                                                <th>Year</th>
-                                                                <th>semester</th>
-                                                                <th>Subject1</th>
-                                                                <th>Subject2</th>
-                                                                <th>Subject3</th>
-                                                                <th>Lab</th>
-                                                                <th>Status</th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <?php 
-                                                                 $sql = "SELECT * FROM `ugpreference` WHERE staffid='$staffid' AND status='1'";
-                                                                 $result = $conn->query($sql);										
-                                                                 if ($result->num_rows > 0) {
-                                                                     while($row = $result->fetch_assoc()) {
-                                                                         $dept = $row["dept"];	
-                                                                         $id = $row["id"];	
-                                                                         $year = $row['year'];
-                                                                         $semester = $row['semester'];
-                                                                         $subject1 = $row['subject1'];
-                                                                         $subject2 = $row['subject2'];
-                                                                         $subject3 = $row['subject3'];
-                                                                         $lab = $row['lab']; 
-                                                                         ?>
-                                                                     
-                                                                            <tr>
-                                                                                <td><?php echo $dept; ?></td>
-                                                                                <td><?php echo $year; ?></td>
-                                                                                <td><?php echo $semester; ?></td>
-                                                                                <td><?php echo $subject1; ?></td>
-                                                                                <td><?php echo $subject2; ?></td>
-                                                                                <td><?php echo $subject3; ?></td>
-                                                                                <td><?php echo $lab; ?></td>
-                                                                                <td> <div class="label-main">
-                                                                                        <label class="label label-warning">waiting</label>
-                                                                                     </div>
-                                                                                </td>
-
-                                                                            </tr>
-                                                                     <?php } } ?>
-                                                        </tbody>
-                                                           
-                                                        </table>
+                                                  
+                                                        <!-- personal card end-->
                                                     </div>
+                                                    <!-- tab pane personal end -->
+                                                  
+                                                    
                                                 </div>
-                                            </div>
-                                            <!-- Default ordering table end -->
+                                                <!-- tab content end -->
                                             </div>
                                         </div>
                                     </div>

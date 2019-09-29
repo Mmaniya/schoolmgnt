@@ -17,10 +17,10 @@ if ($result->num_rows > 0) {
                 header('Location: ../dashbord.php');
             }else{
                 $_SESSION['message']['success'] = "<center><span class='col-pink'>Invalid Username Password..!</span><center>";
-                header('Location: ../index.php');
+                header('Location: ../invalid_user.php');
             }
         }
     }else{
-        $_SESSION['message']['success'] = "<center><span class='col-pink'>Access Denied..!</span><center>";
-        header('Location: ../adminlogin.php');
+        $_SESSION['message']['success'] = "<center><span class='col-pink'>Invalid Username Password..!..!</span><center>";
+        header('Location: ../invalid_user.php');
     }

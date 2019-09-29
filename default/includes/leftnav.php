@@ -79,7 +79,7 @@
                                     
                                 </li>
                                 <li class="pcoded-hasmenu">
-                                    <a href="#">
+                                    <a href="viewtable.php">
                                         <span class="pcoded-micon"><i class="feather icon-box"></i></span>
                                         <span class="pcoded-mtext">Class List</span>
                                     </a>
@@ -94,6 +94,12 @@
                                         <span class="pcoded-mtext">Class Handle</span>
                                     </a>
                               
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="viewpgtable.php">
+                                        <span class="pcoded-micon"><i class="feather icon-box"></i></span>
+                                        <span class="pcoded-mtext">Class List</span>
+                                    </a>
                                 </li>
                                 
                     
