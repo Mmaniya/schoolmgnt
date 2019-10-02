@@ -96,8 +96,7 @@
                                         <div class="col-lg-8">
                                             <div class="page-header-title">
                                                 <div class="d-inline">
-                                                    <h4>View UG Time Table</h4>
-                                                    <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                                    <h4>View PG Time Table</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -126,7 +125,7 @@
                                             <!-- Default ordering table start -->
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h5>Default Ordering</h5>
+                                                <h3>1 Year 1 Semester</h3>
                                                     <!-- <span>Lets say you want to sort the fourth column (3) descending and the first column (0) ascending: your order: would look like this: order: [[ 3, 'desc' ], [ 0, 'asc' ]]</span> -->
 
                                                 </div>
@@ -147,7 +146,7 @@
                                                             <tbody>
                                                             <?php
 
-                                                                $sql = "SELECT * FROM `pgtimetable` WHERE `status`='1' ORDER BY RAND() Limit 6";
+                                                                $sql = "SELECT * FROM `pgtimetable` WHERE `status`='1' AND `dept`='PG' AND `year`='1' AND `sem`='1' ORDER BY RAND() Limit 6";
                                                                 $result = $conn->query($sql);										
                                                                 if ($result->num_rows > 0) {
                                                                     while($row = $result->fetch_assoc()) {
@@ -175,6 +174,66 @@
                                     </div>
                                 </div>
                                 <!-- Page-body end -->
+
+                                <!-- Page-body start -->
+                                <div class="page-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                        
+                                            <!-- Default ordering table start -->
+                                            <div class="card">
+                                                <div class="card-header">
+                                                <h3>1 Year 2 Semester</h3>
+                                                    <!-- <span>Lets say you want to sort the fourth column (3) descending and the first column (0) ascending: your order: would look like this: order: [[ 3, 'desc' ], [ 0, 'asc' ]]</span> -->
+
+                                                </div>
+                                                <div class="card-block">
+                                                    <div class="dt-responsive table-responsive">
+                                                        <table id="order-table" class="table table-striped table-bordered nowrap">
+                                                            <thead>
+                                                            <tr>
+                                                                <!-- <th>#</th> -->
+                                                                <th>Monday</th>
+                                                                <th>Tuesday</th>
+                                                                <th>Wednesday</th>
+                                                                <th>Thursday</th>
+                                                                <th>Friday</th>
+                                                                <th>Saturday</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php
+
+                                                                $sql = "SELECT * FROM `pgtimetable` WHERE `status`='1' AND `dept`='PG' AND `year`='1' AND `sem`='2' ORDER BY RAND() Limit 6";
+                                                                $result = $conn->query($sql);										
+                                                                if ($result->num_rows > 0) {
+                                                                    while($row = $result->fetch_assoc()) {
+
+                                                                        echo "<tr><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td></tr>";
+
+                                                                }
+
+                                                                } 
+
+                                                                
+
+                                                                
+                                                                ?>
+                                                           
+                                                        </tbody>
+                                                    
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Default ordering table end -->
+                                    
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Page-body end -->
+                                
+
                             </div>
                         </div>
                         <!-- Main-body end -->

@@ -176,7 +176,7 @@ if ($result->num_rows > 0) {
                                                             <div class="col-md-12">
                                                                 <div class="media-left">
                                                                     <a href="#" class="profile-image">
-                                                                        <img class="user-img img-radius" src="<?php echo $imageURL; ?>" width="100" height="120" alt="user-img">
+                                                                        <img class="user-img img-radius" src="<?php echo (isset($imageURL)); ?>" width="100" height="120" alt="user-img">
                                                                     </a>
                                                                 </div>
                                                                 <div class="media-body row">
@@ -187,7 +187,7 @@ if ($result->num_rows > 0) {
                                                                         </div>
                                                                     </div>
                                                                     <div>
-                                                                    <?php if($status == '1'){?>
+                                                                    <?php if (isset($status) == '1' ){?>
                                                                         <div class="pull-right cover-btn">
                                                                             <button type="button" class="btn btn-success m-r-10 m-b-5">Appointmented</button>
                                                                             <!-- <button type="button" class="btn btn-success"><i class="icofont icofont-ui-messaging"></i> Message</button> -->
@@ -253,12 +253,12 @@ if ($result->num_rows > 0) {
                                                                                                     </tr>
                                                                                                     <tr>
                                                                                                         <th scope="row">Year</th>
-                                                                                                        <td><?php echo $year; ?> </td>
+                                                                                                        <td><?php echo (isset($year)); ?> </td>
                                                                                                     </tr>
                                                                                                     
                                                                                                     <tr>
                                                                                                         <th scope="row">Subject</th>
-                                                                                                        <td><?php echo $subject; ?> </td>
+                                                                                                        <td><?php echo (isset($subject)); ?> </td>
                                                                                                     </tr>
                                                                                                     
                                                                                                 </tbody>
@@ -276,11 +276,11 @@ if ($result->num_rows > 0) {
                                                                                                     </tr>
                                                                                                     <tr>
                                                                                                         <th scope="row">Semester</th>
-                                                                                                        <td><?php echo $sem; ?></td>
+                                                                                                        <td><?php echo (isset($sem)); ?></td>
                                                                                                     </tr>
                                                                                                     <tr>
                                                                                                         <th scope="row">Lab</th>
-                                                                                                        <td><?php echo $lab; ?></td>
+                                                                                                        <td><?php echo (isset($lab)); ?></td>
                                                                                                     </tr>                                                                                                                                                                                                    
                                                                                                 </tbody>
                                                                                             </table>

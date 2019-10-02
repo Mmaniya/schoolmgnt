@@ -78,12 +78,36 @@
                                     </a>
                                     
                                 </li>
-                                <li class="pcoded-hasmenu">
+                                <!-- <li class="pcoded-hasmenu">
                                     <a href="viewtable.php">
                                         <span class="pcoded-micon"><i class="feather icon-box"></i></span>
                                         <span class="pcoded-mtext">Class List</span>
                                     </a>
-                                </li>
+                                </li> -->
+                                 <li class="pcoded-hasmenu ">
+                                <a href="javascript:void(0)">
+                                    <span class="pcoded-micon"><i class="feather icon-gitlab"></i></span>
+                                    <span class="pcoded-mtext">Class List</span>
+                                </a>
+                                <ul class="pcoded-submenu">
+                                    <li class="">
+                                        <a href="viewtable.php">
+                                            <span class="pcoded-mtext">2 Year</span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="viewtable1.php">
+                                            <span class="pcoded-mtext">3 Year</span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                    <a href="viewtable2.php">
+                                            <span class="pcoded-mtext">4 Year</span>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </li>
                       
                             </ul>
                             <div class="pcoded-navigatio-lavel">PG</div>
@@ -96,10 +120,24 @@
                               
                                 </li>
                                 <li class="pcoded-hasmenu">
-                                    <a href="viewpgtable.php">
+                                <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="feather icon-box"></i></span>
                                         <span class="pcoded-mtext">Class List</span>
                                     </a>
+                                    <ul class="pcoded-submenu">
+                                    <li class="">
+                                        <a href="viewpgtable.php">
+                                            <span class="pcoded-mtext">1 Year</span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="viewpgtable1.php">
+                                            <span class="pcoded-mtext">2 Year</span>
+                                        </a>
+                                    </li>
+                                    
+                                   
+                                </ul>
                                 </li>
                                 
                     

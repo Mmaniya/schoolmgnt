@@ -93,7 +93,6 @@
                                             <div class="page-header-title">
                                                 <div class="d-inline">
                                                     <h4>View Overall Staff</h4>
-                                                    <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -103,7 +102,7 @@
                                                     <li class="breadcrumb-item">
                                                         <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Bootstrap Table</a>
+                                                    <li class="breadcrumb-item"><a href="#!"> Table</a>
                                                     </li>
                                                     <li class="breadcrumb-item"><a href="#!">Basic Initialization</a>
                                                     </li>

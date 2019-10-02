@@ -98,7 +98,6 @@
                                             <div class="page-header-title">
                                                 <div class="d-inline">
                                                     <h4>Add New Staff</h4>
-                                                    <span>Lorem ipsum dolor sit <code>amet</code>, consectetur adipisicing elit</span>
                                                 </div>
                                             </div>
                                         </div>

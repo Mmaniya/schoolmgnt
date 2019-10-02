@@ -4,7 +4,7 @@ $selectyear = $_REQUEST['selectyear'];
 $selectsemeter = $_REQUEST['selectsemeter'];
 $subject = $_REQUEST['subject1'];
 
-$sqlexperience = "SELECT  MAX(experience) as  experience FROM `ugpreference` WHERE `status`= '1'";
+ $sqlexperience = "SELECT  MAX(experience) as  experience FROM `ugpreference` WHERE `status`= '1'";
 $resultone = $conn->query($sqlexperience);										
 if ($resultone->num_rows > 0) {
     while($rowone = $resultone->fetch_assoc()) {
@@ -12,7 +12,7 @@ if ($resultone->num_rows > 0) {
     }
 }
 
- $sql = "SELECT  * FROM `ugpreference` WHERE `experience`= '$experie' AND `subject1`='$subject' OR `subject2`='$subject' OR `subject3`='$subject' OR `lab`='$subject' AND `semester`='$selectsemeter' AND `year`='$selectyear'";
+  $sql = "SELECT  * FROM `ugpreference` WHERE `experience`='$experie' AND `subject1`='$subject' OR `subject2`='$subject' OR `subject3`='$subject' OR `lab`='$subject' AND `semester`='$selectsemeter' AND `year`='$selectyear'";
  $result = $conn->query($sql);										
  if ($result->num_rows > 0) {
      while($row = $result->fetch_assoc()) {

@@ -96,7 +96,7 @@
                                         <div class="col-lg-8">
                                             <div class="page-header-title">
                                                 <div class="d-inline">
-                                                    <h4>View UG Time Table</h4>
+                                                    <h4>View PG Time Table</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -106,7 +106,7 @@
                                                     <li class="breadcrumb-item">
                                                         <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Table</a>
+                                                    <li class="breadcrumb-item"><a href="#!">Bootstrap Table</a>
                                                     </li>
                                                     <li class="breadcrumb-item"><a href="#!">Basic Initialization</a>
                                                     </li>
@@ -125,7 +125,7 @@
                                             <!-- Default ordering table start -->
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h3>2 Year 3 Semester</h3>
+                                                <h3>2 Year 3 Semester</h3>
                                                     <!-- <span>Lets say you want to sort the fourth column (3) descending and the first column (0) ascending: your order: would look like this: order: [[ 3, 'desc' ], [ 0, 'asc' ]]</span> -->
 
                                                 </div>
@@ -146,7 +146,7 @@
                                                             <tbody>
                                                             <?php
 
-                                                                $sql = "SELECT * FROM `ugtimetable` WHERE `status`='1' AND `dept`='UG' AND `year`='2' AND `sem`='3'  ORDER BY RAND() Limit 6";
+                                                                $sql = "SELECT * FROM `pgtimetable` WHERE `status`='1' AND `dept`='PG' AND `year`='2' AND `sem`='3' ORDER BY RAND() Limit 6";
                                                                 $result = $conn->query($sql);										
                                                                 if ($result->num_rows > 0) {
                                                                     while($row = $result->fetch_assoc()) {
@@ -183,7 +183,7 @@
                                             <!-- Default ordering table start -->
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h3>2 Year 4 Semester</h3>
+                                                <h3>2 Year 4 Semester</h3>
                                                     <!-- <span>Lets say you want to sort the fourth column (3) descending and the first column (0) ascending: your order: would look like this: order: [[ 3, 'desc' ], [ 0, 'asc' ]]</span> -->
 
                                                 </div>
@@ -204,7 +204,7 @@
                                                             <tbody>
                                                             <?php
 
-                                                                $sql = "SELECT * FROM `ugtimetable` WHERE `status`='1' AND `dept`='UG' AND `year`='2' AND `sem`='4'  ORDER BY RAND() Limit 6";
+                                                                $sql = "SELECT * FROM `pgtimetable` WHERE `status`='1' AND `dept`='PG' AND `year`='2' AND `sem`='4' ORDER BY RAND() Limit 6";
                                                                 $result = $conn->query($sql);										
                                                                 if ($result->num_rows > 0) {
                                                                     while($row = $result->fetch_assoc()) {
@@ -232,6 +232,7 @@
                                     </div>
                                 </div>
                                 <!-- Page-body end -->
+                                
 
                             </div>
                         </div>
