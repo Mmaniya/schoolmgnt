@@ -2,23 +2,6 @@
 include('../db/dpconfig.php');
 $staffid = $_REQUEST['myid'];
 
-$sql = "SELECT * FROM `pgtimetable` WHERE `staffid`='$staffid'";
-$result = $conn->query($sql);										
-if ($result->num_rows > 0) {
-    while($rows = $result->fetch_assoc()) {
-
-            $subject = $rows["subject"];	
-            $lab = $rows["lab"];	
-            $dept = $rows['dept'];
-            $year = $rows['year'];
-            $sem = $rows['sem'];
-            $status = $rows['status'];
-
-            $imageURL = 'function/uploads/'.$rows['image'];
-        }
-       }
-
-
 
  $sql1 = "SELECT * FROM `staff` WHERE id='$staffid' AND status='1'";
  $results = $conn->query($sql1);										
@@ -187,7 +170,7 @@ if ($result->num_rows > 0) {
                                                                         </div>
                                                                     </div>
                                                                     <div>
-                                                                    <?php if($status == '1'){?>
+                                                                    <?php if(isset($status) == '1'){?>
                                                                         <div class="pull-right cover-btn">
                                                                             <button type="button" class="btn btn-success m-r-10 m-b-5">Appointmented</button>
                                                                             <!-- <button type="button" class="btn btn-success"><i class="icofont icofont-ui-messaging"></i> Message</button> -->
@@ -227,94 +210,63 @@ if ($result->num_rows > 0) {
                                                     </ul>
                                                 </div>
                                                 <!-- tab header end -->
-                                                <!-- tab content start -->
-                                                <div class="tab-content">
-                                                    <!-- tab panel personal start -->
-                                                    <div class="tab-pane active" id="personal" role="tabpanel">
-                                                        <!-- personal card start -->
-                                                        <div class="card">
-                                                            <div class="card-header">
-                                                                <h5 class="card-header-text">Approved</h5>
-                                                                
-                                                            </div>
-                                                            <div class="card-block">
-                                                                <div class="view-info">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-12">
-                                                                            <div class="general-info">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-12 col-xl-6">
-                                                                                        <div class="table-responsive">
-                                                                                            <table class="table m-0">
-                                                                                                <tbody>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">Full Name</th>
-                                                                                                        <td><?php echo $name; ?> </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">Year</th>
-                                                                                                        <td><?php echo $year; ?> </td>
-                                                                                                    </tr>
-                                                                                                    
-                                                                                                    <tr>
-                                                                                                        <th scope="row">Subject</th>
-                                                                                                        <td><?php echo $subject; ?> </td>
-                                                                                                    </tr>
-                                                                                                    
-                                                                                                </tbody>
-                                                                                            </table>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- end of table col-lg-6 -->
-                                                                                    <div class="col-lg-12 col-xl-6">
-                                                                                        <div class="table-responsive">
-                                                                                            <table class="table">
-                                                                                                <tbody>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">Experience</th>
-                                                                                                        <td><?php echo $experience; ?></td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">Semester</th>
-                                                                                                        <td><?php echo $sem; ?></td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">Lab</th>
-                                                                                                        <td><?php echo $lab; ?></td>
-                                                                                                    </tr>                                                                                                                                                                                                    
-                                                                                                </tbody>
-                                                                                            </table>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- end of table col-lg-6 -->
-                                                                                </div>
-                                                                                <!-- end of row -->
-                                                                            </div>
-                                                                            <!-- end of general info -->
-                                                                        </div>
-                                                                        <!-- end of col-lg-12 -->
-                                                                    </div>
-                                                                    <!-- end of row -->
-                                                                </div>
-                                                                
-                                                                        </div>
-                                                                        <!-- end of col-lg-12 -->
-                                                                    </div>
-                                                                    <!-- end of row -->
-                                                                </div>
-                                                                <!-- end of edit-info -->
-                                                            </div>
-                                                            <!-- end of card-block -->
-                                                        </div>
+                                           
+                                                <!-- Page-body start -->
+                                                <div class="page-body">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                        
+                                                            <!-- Default ordering table start -->
+                                                            <div class="card">
+                                                            
+                                                                <div class="card-block">
+                                                                    <div class="dt-responsive table-responsive">
+                                                                        <table id="order-table" class="table table-striped table-bordered nowrap">
+                                                                            <thead>
+                                                                            <tr>
+                                                                                <th>Name</th>
+                                                                                <th>Year</th>
+                                                                                <th>Subject</th>
+                                                                                <th>Experience</th>
+                                                                                <th>Semester</th>
+                                                                                <th>Lab</th>
+                                                                            </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                            <?php
 
-                                                  
-                                                        <!-- personal card end-->
-                                                    </div>
-                                                    <!-- tab pane personal end -->
-                                                  
+                                                                                        $sql = "SELECT * FROM `pgtimetable` WHERE `staffid`='$staffid'";
+                                                                                        $result = $conn->query($sql);										
+                                                                                        if ($result->num_rows > 0) {
+                                                                                            while($rows = $result->fetch_assoc()) {
+
+                                                                                                    $subject = $rows["subject"];	
+                                                                                                    $lab = $rows["lab"];	
+                                                                                                    $dept = $rows['dept'];
+                                                                                                    $year = $rows['year'];
+                                                                                                    $sem = $rows['sem'];
+                                                                                                    $status = $rows['status'];
+
+
+                                                                                        echo "<tr><td>".$name."</td><td>".$year."</td><td>".$subject."</td><td>".$experience."</td><td>".$sem."</td><td>".$lab."</td></tr>";
+
+                                                                                    }
+
+                                                                                } 
+                                                                                ?>
+                                                                        
+                                                                        </tbody>
+                                                                    
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                     
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <!-- tab content end -->
+                                                <!-- Page-body end -->
+
                                             </div>
                                         </div>
                                     </div>
