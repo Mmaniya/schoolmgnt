@@ -134,7 +134,7 @@
                                                         <table id="order-table" class="table table-striped table-bordered nowrap">
                                                             <thead>
                                                             <tr>
-                                                                <!-- <th>#</th> -->
+                                                                <th>#</th>
                                                                 <th>Monday</th>
                                                                 <th>Tuesday</th>
                                                                 <th>Wednesday</th>
@@ -149,11 +149,47 @@
                                                                 $sql = "SELECT * FROM `pgtimetable` WHERE `status`='1' AND `dept`='PG' AND `year`='2' AND `sem`='3' ORDER BY RAND() Limit 6";
                                                                 $result = $conn->query($sql);										
                                                                 if ($result->num_rows > 0) {
-                                                                    while($row = $result->fetch_assoc()) {
+                                                                    $i = 1;
+                                                                    while($row = $result->fetch_assoc()) { ?>
 
-                                                                        echo "<tr><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td></tr>";
+                                                            <tr><td><?php 
+                                                            switch ($i) {
+                                                                case "1":
+                                                                    echo "8.30 - 9.20";
+                                                                    break;
+                                                                case "2":
+                                                                    echo "9.20 - 10.10";
+                                                                    break;
+                                                                case "3":
+                                                                    echo "10.30 - 11.20";
+                                                                    break;
+                                                                case "4":
+                                                                    echo "11.20 - 12.10";
+                                                                    break;
+                                                                case "5":
+                                                                    echo "1.40 - 2.30";
+                                                                    break;
+                                                                case "6":
+                                                                    echo "2.30 - 3.20";
+                                                                    break;
+                                                                case "7":
+                                                                    echo "3.30 - 4.20";
+                                                                    break;
+                                                                case "8":
+                                                                    echo "4.20 - 5.10";
+                                                                    break;
+                                                            }?></td>
+                                                        <td><?php echo $row['subject']?></td>
+                                                        <td><?php echo $row['subject']?></td>
+                                                        <td><?php echo $row['subject']?></td>
+                                                        <td><?php echo $row['subject']?></td>
+                                                        <td><?php echo $row['subject']?></td>
+                                                        <td><?php echo $row['subject']?></td>
+                                                    </tr>
 
-                                                                }
+                                                                        <!-- echo "<tr><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td></tr>"; -->
+
+                                                               <?php $i++; }
 
                                                                 } 
 
@@ -192,7 +228,7 @@
                                                         <table id="order-table" class="table table-striped table-bordered nowrap">
                                                             <thead>
                                                             <tr>
-                                                                <!-- <th>#</th> -->
+                                                                <th>#</th>
                                                                 <th>Monday</th>
                                                                 <th>Tuesday</th>
                                                                 <th>Wednesday</th>
@@ -207,11 +243,47 @@
                                                                 $sql = "SELECT * FROM `pgtimetable` WHERE `status`='1' AND `dept`='PG' AND `year`='2' AND `sem`='4' ORDER BY RAND() Limit 6";
                                                                 $result = $conn->query($sql);										
                                                                 if ($result->num_rows > 0) {
-                                                                    while($row = $result->fetch_assoc()) {
+                                                                    $s =1;
+                                                                    while($row = $result->fetch_assoc()) { ?>
 
-                                                                        echo "<tr><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td></tr>";
+                                                        <tr><td><?php 
+                                                            switch ($s) {
+                                                                case "1":
+                                                                    echo "8.30 - 9.20";
+                                                                    break;
+                                                                case "2":
+                                                                    echo "9.20 - 10.10";
+                                                                    break;
+                                                                case "3":
+                                                                    echo "10.30 - 11.20";
+                                                                    break;
+                                                                case "4":
+                                                                    echo "11.20 - 12.10";
+                                                                    break;
+                                                                case "5":
+                                                                    echo "1.40 - 2.30";
+                                                                    break;
+                                                                case "6":
+                                                                    echo "2.30 - 3.20";
+                                                                    break;
+                                                                case "7":
+                                                                    echo "3.30 - 4.20";
+                                                                    break;
+                                                                case "8":
+                                                                    echo "4.20 - 5.10";
+                                                                    break;
+                                                            }?></td>
+                                                        <td><?php echo $row['subject']?></td>
+                                                        <td><?php echo $row['subject']?></td>
+                                                        <td><?php echo $row['subject']?></td>
+                                                        <td><?php echo $row['subject']?></td>
+                                                        <td><?php echo $row['subject']?></td>
+                                                        <td><?php echo $row['subject']?></td>
+                                                    </tr>
 
-                                                                }
+                                                                        <!-- echo "<tr><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td><td>".$row['subject']."</td></tr>"; -->
+
+                                                              <?php $s++;  }
 
                                                                 } 
 

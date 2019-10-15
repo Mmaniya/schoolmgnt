@@ -153,7 +153,8 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Name</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="staffname" placeholder="Type your Name" value="<?php echo $name; ?>">
+                                                                <input type="text" class="form-control" name="staffname" placeholder="Type your Name" value="<?php 
+                                                                echo $name; ?>">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">

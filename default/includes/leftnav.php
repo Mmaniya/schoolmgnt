@@ -49,7 +49,7 @@
                                 <li class="pcoded-hasmenu">
                                     <a href="addstaff.php">
                                         <span class="pcoded-micon"><i class="feather icon-box"></i></span>
-                                        <span class="pcoded-mtext">Add Staff</span>
+                                        <span class="pcoded-mtext">Add Staff </span>
                                     </a>
                                    
                                 </li>

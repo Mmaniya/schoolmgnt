@@ -16,7 +16,7 @@ $status = 1;
 $result = $conn->query($sqlss);										
 if ($result->num_rows > 0) {
 
-    // header("Location:../alreadyselect.php");
+    header("Location:../alreadyselect.php");
    
    }else{
 
