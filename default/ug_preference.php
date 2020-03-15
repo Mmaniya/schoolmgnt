@@ -19,7 +19,7 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
 <html lang="en">
 
 <head>
-    <title>Staff </title>
+    <title>School </title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -107,7 +107,7 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
                                         <div class="col-lg-8">
                                             <div class="page-header-title">
                                                 <div class="d-inline">
-                                                    <h4>Preference Class Selected</h4>
+                                                    <h4>Popularity School</h4>
                                                     <!-- <span>Lorem ipsum dolor sit <code>amet</code>, consectetur adipisicing elit</span> -->
                                                 </div>
                                             </div>
@@ -136,7 +136,7 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
                                             <!-- Basic Form Inputs card start -->
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h5>Preference Subject Select</h5>
+                                                    <h5>Popularity School</h5>
                                                     <!-- <span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span> -->
 
 
@@ -150,353 +150,60 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
                                                     <form action="function/addpreference.php" method="post" enctype="multipart/form-data">
                                                     <input type="hidden" name="staffid" value="<?php echo $staffid; ?>">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Dept</label>
+                                                            <label class="col-sm-2 col-form-label">Number of Students</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="deptname" placeholder="Type your Dept Name" value="UG"  readonly>
+                                                                <input type="text" class="form-control" name="stuname" placeholder="No of Students" value="" >
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Year of Experience</label>
+                                                            <label class="col-sm-2 col-form-label">Number of Staffs</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" class="form-control" name="staffname" placeholder="No of Staff" value="" >
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Year of Runnings</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" name="experience" placeholder="Type your Dept Name" value="<?php echo $experience; ?>"  readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Select Year</label>
+                                                            <label class="col-sm-2 col-form-label">Sector</label>
                                                             <div class="col-sm-10">
                                                                 <select name="selectyear" class="form-control" id="selectyear" required>
-                                                                    <option value =''disabled selected>Select Year</option>
-                                                                    <option value="2"> 2 Year</option>
-                                                                    <option value="3"> 3 Year</option>
-                                                                    <option value="4"> 4 Year</option>
+                                                                    <option value ='' disabled selected>Select Sector</option>
+                                                                    <option value="private">Private</option>
+                                                                    <option value="goverment">Goverment</option>
                                                                 </select>
                                                             </div>
                                                         </div>
 
-                                                        <div id="secondyear">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-2 col-form-label">Select Semester</label>
-                                                                <div class="col-sm-10">
-                                                                    <select name="selectsemeter" class="form-control" id="secondyearsubject" >
-                                                                        <option value =''disabled selected>Select Semester</option>
-                                                                        <option value="3"> 3 Semester</option>
-                                                                        <option value="4"> 4 Semester</option>
-                                                                    </select>
-                                                                </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Education</label>
+                                                            <div class="col-sm-10">
+                                                                <select name="selectedu" class="form-control" id="selectedu" required>
+                                                                    <option value =''disabled selected>Select Education</option>
+                                                                    <option value="gendral">Go Education</option>
+                                                                    <option value="boys">Boys School</option>
+                                                                    <option value="girls">Girls School</option>
+                                                                </select>
                                                             </div>
-
-                                                                <div id ="semester3">
-                                                                <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Semester 3</label>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject1" class="form-control">
-                                                                            <option value ='' disabled selected>Select Preferred 1</option>
-                                                                            <option value="15I301">Linear algebra and numerical analysis</option>
-                                                                            <option value="15I302">Computer architecture</option>
-                                                                            <option value="15I303">Data structures</option>
-                                                                            <option value="15I304">Analog and digital communication</option>
-                                                                            <option value="15I305">Environmental science and engineering</option>
-                                                                            <option value="15I070">Economic for engineering</option>                                                                    
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject2" class="form-control">
-                                                                            <option value =''disabled selected>Select Preferred 2</option>
-                                                                            <option value="15I301">Linear algebra and numerical analysis</option>
-                                                                            <option value="15I302">Computer architecture</option>
-                                                                            <option value="15I303">Data structures</option>
-                                                                            <option value="15I304">Analog and digital communication</option>
-                                                                            <option value="15I305">Environmental science and engineering</option>
-                                                                            <option value="15I070">Economic for engineering</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject3" class="form-control">
-                                                                            <option value =''disabled selected>Select Preferred 3</option>
-                                                                            <option value="15I301">Linear algebra and numerical analysis</option>
-                                                                            <option value="15I302">Computer architecture</option>
-                                                                            <option value="15I303">Data structures</option>
-                                                                            <option value="15I304">Analog and digital communication</option>
-                                                                            <option value="15I305">Environmental science and engineering</option>
-                                                                            <option value="15I070">Economic for engineering</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    </div>
-
-                                                                    <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Semester 3 Lab</label>
-                                                                    <div class="col-sm-10">
-                                                                        <select name="labs" class="form-control">
-                                                                            <option value ='' disabled selected>Select Preferred Lab </option>
-                                                                            <option value="15I310">Data structures laboratory</option>
-                                                                            <option value="15I311">Digital logic design laboratory</option>                                                                                                                                     
-                                                                        </select>
-                                                                    </div>                                                            
-                                                                </div>
-                                                            </div>
-
-                                                            <div id ="semester4">
-                                                                <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Semester 4</label>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject1" class="form-control">
-                                                                            <option value ='' disabled selected>Select Preferred 1</option>
-                                                                            <option value="15I401">Probability, statistics and random processes</option>
-                                                                            <option value="15I402">Digital signal processing</option>
-                                                                            <option value="15I403">Operating systems</option>
-                                                                            <option value="15I404">Database management systems</option>
-                                                                            <option value="15I405">Software engineering</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject2" class="form-control">
-                                                                        <option value ='' disabled selected>Select Preferred 2</option>
-                                                                            <option value="15I401">Probability, statistics and random processes</option>
-                                                                            <option value="15I402">Digital signal processing</option>
-                                                                            <option value="15I403">Operating systems</option>
-                                                                            <option value="15I404">Database management systems</option>
-                                                                            <option value="15I405">Software engineering</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject3" class="form-control">
-                                                                            <option value ='' disabled selected>Select Preferred 3</option>
-                                                                            <option value="15I401">Probability, statistics and random processes</option>
-                                                                            <option value="15I402">Digital signal processing</option>
-                                                                            <option value="15I403">Operating systems</option>
-                                                                            <option value="15I404">Database management systems</option>
-                                                                            <option value="15I405">Software engineering</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    </div>
-
-                                                                    <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Semester 4 Lab</label>
-                                                                    <div class="col-sm-10">
-                                                                        <select name="labs" class="form-control">
-                                                                            <option value ='' disabled selected>Select Preferred Lab </option>
-                                                                            <option value="15I410">Operating systems laboratory</option>
-                                                                            <option value="15I411">Database management systems laboratory</option>                                                                                                                                     
-                                                                        </select>
-                                                                    </div>                                                            
-                                                                </div>
-                                                            </div>
-
                                                         </div>
 
-                                                        <div id="thirdyear">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-2 col-form-label">Select Semester</label>
-                                                                <div class="col-sm-10">
-                                                                    <select name="selectsemeter" class="form-control" id="thirdyearsubject" >
-                                                                        <option value =''disabled selected>Select Semester</option>
-                                                                        <option value="5"> 5 Semester</option>
-                                                                        <option value="6"> 6 Semester</option>
-                                                                    </select>
-                                                                </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Popularity</label>
+                                                            <div class="col-sm-10">
+                                                                <select name="popularity" class="form-control" id="popularity" required>
+                                                                    <option value =''disabled selected>Select Popularity</option>
+                                                                    <option value="5"> 5 star</option>
+                                                                    <option value="4"> 4 star</option>
+                                                                    <option value="3"> 3 star</option>
+                                                                    <option value="2"> 2 star</option>
+                                                                    <option value="1"> 1 star</option>
+                                                                </select>
                                                             </div>
-
-                                                            <div id ="semester5">
-                                                                <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Semester 5</label>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject1" class="form-control">
-                                                                            <option value ='' disabled selected>Select Preferred 1</option>
-                                                                            <option value="15I501">Microprocessors and interfacing</option>
-                                                                            <option value="15I502">Computer communication networks</option>
-                                                                            <option value="15I503">Object oriented modelling and design</option>
-                                                                            <option value="15I504">Java programming</option>
-                                                                            <option value="15I505">Design and analysis of algorithms</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject2" class="form-control">
-                                                                        <option value ='' disabled selected>Select Preferred 2</option>
-                                                                            <option value="15I501">Microprocessors and interfacing</option>
-                                                                            <option value="15I502">Computer communication networks</option>
-                                                                            <option value="15I503">Object oriented modelling and design</option>
-                                                                            <option value="15I504">Java programming</option>
-                                                                            <option value="15I505">Design and analysis of algorithms</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject3" class="form-control">
-                                                                            <option value ='' disabled selected>Select Preferred 3</option>
-                                                                            <option value="15I501">Microprocessors and interfacing</option>
-                                                                            <option value="15I502">Computer communication networks</option>
-                                                                            <option value="15I503">Object oriented modelling and design</option>
-                                                                            <option value="15I504">Java programming</option>
-                                                                            <option value="15I505">Design and analysis of algorithms</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    </div>
-
-                                                                    <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Semester 5 Lab</label>
-                                                                    <div class="col-sm-10">
-                                                                        <select name="lab" class="form-control">
-                                                                            <option value ='' disabled selected>Select Preferred Lab </option>
-                                                                            <option value="15I510">Microprocessors and interfacing laboratory</option>
-                                                                            <option value="15I511">Java programming laboratory</option>                                                                                                                                     
-                                                                        </select>
-                                                                    </div>                                                            
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <div id ="semester6">
-                                                                <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Semester 6</label>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject1" class="form-control">
-                                                                            <option value ='' disabled selected>Select Preferred 1</option>
-                                                                            <option value="15I601">Advanced data structures</option>
-                                                                            <option value="15I602">Theory of computing</option>
-                                                                            <option value="15I603">Web technologies</option>
-                                                                            <option value="15I604">Mobile communication and computing</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject2" class="form-control">
-                                                                        <option value ='' disabled selected>Select Preferred 2</option>
-                                                                            <option value="15I601">Advanced data structures</option>
-                                                                            <option value="15I602">Theory of computing</option>
-                                                                            <option value="15I603">Web technologies</option>
-                                                                            <option value="15I604">Mobile communication and computing</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject3" class="form-control">
-                                                                            <option value ='' disabled selected>Select Preferred 3</option>
-                                                                            <option value="15I601">Advanced data structures</option>
-                                                                            <option value="15I602">Theory of computing</option>
-                                                                            <option value="15I603">Web technologies</option>
-                                                                            <option value="15I604">Mobile communication and computing</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    </div>
-
-                                                                    <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Semester 6 Lab</label>
-                                                                    <div class="col-sm-10">
-                                                                        <select name="lab" class="form-control">
-                                                                            <option value ='' disabled selected>Select Preferred Lab </option>
-                                                                            <option value="15I610">Advanced data structures laboratory</option>
-                                                                            <option value="15I611">Open source computing laboratory</option>                                                                                                                                     
-                                                                        </select>
-                                                                    </div>                                                            
-                                                                </div>
-                                                             </div>
-
                                                         </div>
-
-                                                        <div id="fourthyear">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-2 col-form-label">Select Semester</label>
-                                                                <div class="col-sm-10">
-                                                                    <select name="selectsemeter" class="form-control" id="fourthyearsubject" >
-                                                                        <option value =''disabled selected>Select Semester</option>
-                                                                        <option value="7"> 7 Semester</option>
-                                                                        <option value="8"> 8 Semester</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-
-                                                            <div id ="semester7">
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-2 col-form-label">Semester 7</label>
-                                                                <div class="col-sm-3">
-                                                                    <select name="subject1" class="form-control">
-                                                                        <option value ='' disabled selected>Select Preferred 1</option>
-                                                                        <option value="15I701">Information security</option>
-                                                                        <option value="15I702">Data mining</option>
-                                                                        <option value="15I703">Internet of things</option>
-                                                                        <option value="15I003">Soft computing</option>
-                                                                        <option value="15I005">Software process management</option>
-                                                                        <option value="15I009">Cloud computing</option>
-                                                                        <option value="15I010">TCP/IP and network management</option>
-                                                                        <option value="15I011">Digital image processing</option>
-                                                                        <option value="15I012">Unix internals</option>
-                                                                        <option value="15I018">Client server computing</option>
-                                                                        <option value="15I019">Embedded systems</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-sm-3">
-                                                                    <select name="subject2" class="form-control">
-                                                                    <option value ='' disabled selected>Select Preferred 2</option>
-                                                                    <option value="15I701">Information security</option>
-                                                                        <option value="15I702">Data mining</option>
-                                                                        <option value="15I703">Internet of things</option>
-                                                                        <option value="15I003">Soft computing</option>
-                                                                        <option value="15I005">Software process management</option>
-                                                                        <option value="15I009">Cloud computing</option>
-                                                                        <option value="15I010">TCP/IP and network management</option>
-                                                                        <option value="15I011">Digital image processing</option>
-                                                                        <option value="15I012">Unix internals</option>
-                                                                        <option value="15I018">Client server computing</option>
-                                                                        <option value="15I019">Embedded systems</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-sm-3">
-                                                                    <select name="subject3" class="form-control">
-                                                                        <option value ='' disabled selected>Select Preferred 3</option>
-                                                                        <option value="15I701">Information security</option>
-                                                                        <option value="15I702">Data mining</option>
-                                                                        <option value="15I703">Internet of things</option>
-                                                                        <option value="15I003">Soft computing</option>
-                                                                        <option value="15I005">Software process management</option>
-                                                                        <option value="15I009">Cloud computing</option>
-                                                                        <option value="15I010">TCP/IP and network management</option>
-                                                                        <option value="15I011">Digital image processing</option>
-                                                                        <option value="15I012">Unix internals</option>
-                                                                        <option value="15I018">Client server computing</option>
-                                                                        <option value="15I019">Embedded systems</option>
-                                                                    </select>
-                                                                </div>
-                                                                <input type="hidden" name="lab">
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div id ="semester8">
-                                                                <div class="form-group row">
-                                                                    <label class="col-sm-2 col-form-label">Semester 8</label>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject1" class="form-control">
-                                                                            <option value ='' disabled selected>Select Preferred 1</option>
-                                                                            <option value="15I701">Information retrieval</option>
-                                                                            <option value="15I702">Web services and service oriented architecture</option>
-                                                                            <option value="15I703">Internet of things</option>
-                                                                            <option value="15I003">Multicore computing</option>
-                                                                            <option value="15I005">Network and internet security</option>                                                                  
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject2" class="form-control">
-                                                                        <option value ='' disabled selected>Select Preferred 2</option>
-                                                                        <option value="15I701">Information retrieval</option>
-                                                                            <option value="15I702">Web services and service oriented architecture</option>
-                                                                            <option value="15I703">Internet of things</option>
-                                                                            <option value="15I003">Multicore computing</option>
-                                                                            <option value="15I005">Network and internet security</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-sm-3">
-                                                                        <select name="subject3" class="form-control">
-                                                                        <option value="15I701">Information retrieval</option>
-                                                                            <option value="15I702">Web services and service oriented architecture</option>
-                                                                            <option value="15I703">Internet of things</option>
-                                                                            <option value="15I003">Multicore computing</option>
-                                                                            <option value="15I005">Network and internet security</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <input type="hidden" name="lab">
-
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-                                                        
+        
                                                         
                                                         <div class="row">
                                                             <div class="offset-lg-3 col-lg-6 col-md-12">
@@ -560,85 +267,85 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
 $(function() {
 
 
-    $("#secondyear").hide();
-    $("#thirdyear").hide();
-    $("#fourthyear").hide();
+    // $("#secondyear").hide();
+    // $("#thirdyear").hide();
+    // $("#fourthyear").hide();
 
-    $("#selectyear").change(function() {
-         var year = $('option:selected', this).val();
+    // $("#selectyear").change(function() {
+    //      var year = $('option:selected', this).val();
 
-        //  alert(year);
+    //     //  alert(year);
 
-         if (year == '2'){
-             $("#secondyear").show();
-         } else {
-            $("#secondyear").hide();
-         }
-         if (year == '3'){
-             $("#thirdyear").show();
-         } else {
-            $("#thirdyear").hide();
-         }
-         if (year == '4'){
-             $("#fourthyear").show();
-         } else {
-            $("#fourthyear").hide();
-         }
-    });
-
-
-
-    $("#semester3").hide();
-    $("#semester4").hide();
-
-    $("#secondyearsubject").change(function() {
-         var year2 = $('option:selected', this).val();
-         if (year2 == '3'){
-             $("#semester3").show();
-         } else {
-            $("#semester3").hide();
-         }
-         if (year2 == '4'){
-             $("#semester4").show();
-         } else {
-            $("#semester4").hide();
-         }
-    });
+    //      if (year == '2'){
+    //          $("#secondyear").show();
+    //      } else {
+    //         $("#secondyear").hide();
+    //      }
+    //      if (year == '3'){
+    //          $("#thirdyear").show();
+    //      } else {
+    //         $("#thirdyear").hide();
+    //      }
+    //      if (year == '4'){
+    //          $("#fourthyear").show();
+    //      } else {
+    //         $("#fourthyear").hide();
+    //      }
+    // });
 
 
-    $("#semester5").hide();
-    $("#semester6").hide();
 
-    $("#thirdyearsubject").change(function() {
-         var year3 = $('option:selected', this).val();
-         if (year3 == '5'){
-             $("#semester5").show();
-         } else {
-            $("#semester5").hide();
-         }
-         if (year3 == '6'){
-             $("#semester6").show();
-         } else {
-            $("#semester6").hide();
-         }
-    });
+    // $("#semester3").hide();
+    // $("#semester4").hide();
 
-    $("#semester7").hide();
-    $("#semester8").hide();
+    // $("#secondyearsubject").change(function() {
+    //      var year2 = $('option:selected', this).val();
+    //      if (year2 == '3'){
+    //          $("#semester3").show();
+    //      } else {
+    //         $("#semester3").hide();
+    //      }
+    //      if (year2 == '4'){
+    //          $("#semester4").show();
+    //      } else {
+    //         $("#semester4").hide();
+    //      }
+    // });
 
-    $("#fourthyearsubject").change(function() {
-         var year4 = $('option:selected', this).val();
-         if (year4 == '7'){
-             $("#semester7").show();
-         } else {
-            $("#semester7").hide();
-         }
-         if (year4 == '8'){
-             $("#semester8").show();
-         } else {
-            $("#semester8").hide();
-         }
-    });
+
+    // $("#semester5").hide();
+    // $("#semester6").hide();
+
+    // $("#thirdyearsubject").change(function() {
+    //      var year3 = $('option:selected', this).val();
+    //      if (year3 == '5'){
+    //          $("#semester5").show();
+    //      } else {
+    //         $("#semester5").hide();
+    //      }
+    //      if (year3 == '6'){
+    //          $("#semester6").show();
+    //      } else {
+    //         $("#semester6").hide();
+    //      }
+    // });
+
+    // $("#semester7").hide();
+    // $("#semester8").hide();
+
+    // $("#fourthyearsubject").change(function() {
+    //      var year4 = $('option:selected', this).val();
+    //      if (year4 == '7'){
+    //          $("#semester7").show();
+    //      } else {
+    //         $("#semester7").hide();
+    //      }
+    //      if (year4 == '8'){
+    //          $("#semester8").show();
+    //      } else {
+    //         $("#semester8").hide();
+    //      }
+    // });
 
 
 

@@ -44,32 +44,32 @@
                                 </li> -->
                                 
                             </ul>
-                            <div class="pcoded-navigatio-lavel">Staff</div>
+                            <div class="pcoded-navigatio-lavel">School</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu">
                                     <a href="addstaff.php">
                                         <span class="pcoded-micon"><i class="feather icon-box"></i></span>
-                                        <span class="pcoded-mtext">Add Staff </span>
+                                        <span class="pcoded-mtext">Add School </span>
                                     </a>
                                    
                                 </li>
-                                <li class="pcoded-hasmenu">
+                                <!-- <li class="pcoded-hasmenu">
                                     <a href="activated.php">
                                         <span class="pcoded-micon"><i class="feather icon-gitlab"></i></span>
                                         <span class="pcoded-mtext">Activate Staff</span>
                                     </a>
                                     
-                                </li>
+                                </li> -->
                                 <li class="pcoded-hasmenu">
                                     <a href="viewstaff.php">
                                         <span class="pcoded-micon"><i class="feather icon-package"></i></span>
-                                        <span class="pcoded-mtext">View Staff</span>
+                                        <span class="pcoded-mtext">View School</span>
                                     </a>
                                     
                                 </li>
                                 
                             </ul>
-                            <div class="pcoded-navigatio-lavel">UG</div>
+                            <!-- <div class="pcoded-navigatio-lavel">UG</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu">
                                     <a href="ugclass.php">
@@ -78,12 +78,12 @@
                                     </a>
                                     
                                 </li>
-                                <!-- <li class="pcoded-hasmenu">
+                                <li class="pcoded-hasmenu">
                                     <a href="viewtable.php">
                                         <span class="pcoded-micon"><i class="feather icon-box"></i></span>
                                         <span class="pcoded-mtext">Class List</span>
                                     </a>
-                                </li> -->
+                                </li>
                                  <li class="pcoded-hasmenu ">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="feather icon-gitlab"></i></span>
@@ -141,7 +141,7 @@
                                 </li>
                                 
                     
-                            </ul>
+                            </ul> -->
                
                         </div>
                     </nav>

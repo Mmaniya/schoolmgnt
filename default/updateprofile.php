@@ -137,7 +137,7 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
                                             <!-- Basic Form Inputs card start -->
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h5>Add New Staff</h5>
+                                                    <h5>Update School</h5>
                                                     <!-- <span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span> -->
 
 
@@ -151,7 +151,7 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
                                                     <form action="function/updateprofile.php" method="post" enctype="multipart/form-data">
                                                     <input type="hidden" name="staffid" value="<?php echo $staffid; ?>">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Name</label>
+                                                            <label class="col-sm-2 col-form-label">School Name</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" name="staffname" placeholder="Type your Name" value="<?php 
                                                                 echo $name; ?>">
@@ -171,7 +171,7 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
                                                         </div>
                                                  
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Upload Profile</label>
+                                                            <label class="col-sm-2 col-form-label">Upload School Profile</label>
                                                             <div class="col-sm-10">
                                                                 <input type="file" class="form-control" name="profile">
                                                             </div>
@@ -194,7 +194,7 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
                                                         </div> -->
                                                         
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Year of Experience
+                                                            <label class="col-sm-2 col-form-label">Year of Running
                                                                 </label>
                                                             <div class="col-sm-10">
                                                                 <input type="number" class="form-control" name="experience" placeholder="Enter Year of Experience" value="<?php echo $experience; ?>" >

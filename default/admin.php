@@ -79,7 +79,7 @@
                                                 </label>
                                             </div>
                                             <div class="forgot-phone text-right f-right">
-                                                <a href="signup.php" class="text-right f-w-600">Create Account</a>
+                                                <a href="signup.php" class="text-right f-w-600">Students Register</a>
                                             </div>
                                         </div>
                                     </div>
@@ -90,11 +90,14 @@
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-md-10">
+                                        <div class="col-md-6">
                                             <p class="text-inverse text-left m-b-0">Log In.</p>
-                                            <p class="text-inverse text-left"><a href="index.php"><b class="f-w-600">Staff Login</b></a></p>
+                                            <p class="text-inverse text-left"><a href="index.php"><b class="f-w-600">School Login</b></a></p>
                                         </div>
-                                        
+                                        <div class="col-md-6">
+                                                <p class="text-inverse text-left m-b-0">Log In.</p>
+                                                <p class="text-inverse text-left"><a href="stulogin.php"><b class="f-w-600">Students Login</b></a></p>
+                                            </div>
                                     </div>
                                  
                                 </div>

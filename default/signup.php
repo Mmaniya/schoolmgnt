@@ -92,11 +92,18 @@
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-md-10">
+                                        <div class="col-md-4">
                                             <p class="text-inverse text-left m-b-0">Thank you.</p>
                                             <p class="text-inverse text-left"><a href="admin.php"><b class="f-w-600">Admin Login</b></a></p>
                                         </div>
-                                        
+                                        <div class="col-md-4">
+                                            <p class="text-inverse text-left m-b-0">Log In.</p>
+                                            <p class="text-inverse text-left"><a href="index.php"><b class="f-w-600">School Login</b></a></p>
+                                        </div>
+                                        <div class="col-md-4">
+                                                <p class="text-inverse text-left m-b-0">Log In.</p>
+                                                <p class="text-inverse text-left"><a href="stulogin.php"><b class="f-w-600">Students Login</b></a></p>
+                                            </div>
                                     </div>
                                     <span>
                                         <?php

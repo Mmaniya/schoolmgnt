@@ -92,7 +92,7 @@
                                         <div class="col-lg-8">
                                             <div class="page-header-title">
                                                 <div class="d-inline">
-                                                    <h4>View Overall Staff</h4>
+                                                    <h4>View Overall School</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -130,12 +130,12 @@
                                                         <table id="order-table" class="table table-striped table-bordered nowrap">
                                                             <thead>
                                                             <tr>
-                                                                <th>Profile</th>
-                                                                <th>Name</th>
+                                                                <th>School Profile</th>
+                                                                <th>School Name</th>
                                                                 <th>Email</th>
                                                                 <th>Mobile</th>
                                                                 <th>Address</th>
-                                                                <th>Experience</th>
+                                                                <th>Running Years</th>
                                                                 <th>Action</th>
                                                             </tr>
                                                             </thead>

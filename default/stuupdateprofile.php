@@ -1,16 +1,26 @@
-<?php  include('../db/dpconfig.php');?>
+<?php  include('../db/dpconfig.php');
+$staffid = $_REQUEST['myid'];
+
+$sql = "SELECT * FROM `students` WHERE id='$staffid'";
+ $result = $conn->query($sql);										
+ if ($result->num_rows > 0) {
+     while($row = $result->fetch_assoc()) {
+         $name = $row["name"];	
+         $id = $row["id"];	
+         $email = $row['email'];
+         $mobile = $row['mobile'];
+         $address = $row['address'];
+         $password = $row['password'];
+         $imageURL = 'function/uploads/'.$row['profile'];
+     }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Admin </title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- Meta -->
+    <title>Students </title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,12 +89,12 @@
     <div class="pcoded-overlay-box"></div>
     <div class="pcoded-container navbar-wrapper">
 
-    <?php include('includes/topnav.php'); ?>
+    <?php include('includes/topnavstu.php'); ?>
 
         <!-- Sidebar inner chat end-->
         <div class="pcoded-main-container">
             <div class="pcoded-wrapper">
-            <?php include('includes/leftnav.php'); ?>
+            <?php include('includes/leftnavstu.php'); ?>
 
                 <div class="pcoded-content">
                     <div class="pcoded-inner-content">
@@ -97,7 +107,8 @@
                                         <div class="col-lg-8">
                                             <div class="page-header-title">
                                                 <div class="d-inline">
-                                                    <h4>Add New School</h4>
+                                                    <h4>Update My Profile</h4>
+                                                    <!-- <span>Lorem ipsum dolor sit <code>amet</code>, consectetur adipisicing elit</span> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -125,7 +136,7 @@
                                             <!-- Basic Form Inputs card start -->
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h5>Add New School</h5>
+                                                    <h5>Update Student</h5>
                                                     <!-- <span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span> -->
 
 
@@ -136,28 +147,30 @@
                                                 </div>
                                                 <div class="card-block">
                                                     <h4 class="sub-title">Basic Details</h4>
-                                                    <form action="function/addnewstaff.php" method="post" enctype="multipart/form-data">
+                                                    <form action="function/stu_updateprofile.php" method="post" enctype="multipart/form-data">
+                                                    <input type="hidden" name="staffid" value="<?php echo $staffid; ?>">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">School Name</label>
+                                                            <label class="col-sm-2 col-form-label">Student Name</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="staffname" placeholder="Type your Name">
+                                                                <input type="text" class="form-control" name="staffname" placeholder="Type your Name" value="<?php 
+                                                                echo $name; ?>">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Mobile</label>
                                                             <div class="col-sm-10">
-                                                                <input type="tel" class="form-control" name="mobile" placeholder="Type your Mobile">
+                                                                <input type="tel" class="form-control" name="mobile" placeholder="Type your Mobile" value="<?php echo $mobile; ?>">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Email</label>
                                                             <div class="col-sm-10">
-                                                                <input type="email" class="form-control" name="staffemail" placeholder="Enter Your Email">
+                                                                <input type="email" class="form-control" name="staffemail" placeholder="Enter Your Email" value="<?php echo $email; ?>">
                                                             </div>
                                                         </div>
                                                  
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">School Profile</label>
+                                                            <label class="col-sm-2 col-form-label">Upload Student Profile</label>
                                                             <div class="col-sm-10">
                                                                 <input type="file" class="form-control" name="profile">
                                                             </div>
@@ -179,20 +192,11 @@
                                                             </div>
                                                         </div> -->
                                                         
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Year of Runnings
-                                                                </label>
-                                                            <div class="col-sm-10">
-                                                                <input type="number" class="form-control" name="experience" placeholder="Enter Year of Experience" >
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        
                                                         
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Address</label>
                                                             <div class="col-sm-10">
-                                                                <textarea rows="5" cols="5" class="form-control" name="address" placeholder="Default textarea"></textarea>
+                                                                <textarea rows="5" cols="5" class="form-control" name="address" placeholder="Default textarea"><?php echo $address; ?></textarea>
                                                             </div>
                                                         </div>
 
@@ -200,14 +204,14 @@
                                                             <label class="col-sm-2 col-form-label">Password
                                                                 </label>
                                                             <div class="col-sm-10">
-                                                                <input type="password" class="form-control" name="password" placeholder="Enter Year of Password" >
+                                                                <input type="text" class="form-control" name="password" placeholder="Enter Year of Password" value="<?php echo $password; ?>" >
                                                             </div>
                                                         </div>
                                                         
                                                         <div class="row">
                                                             <div class="offset-lg-3 col-lg-6 col-md-12">
                                                                 <div class="form-group">
-                                                                    <input type="submit" class="btn btn-grd-primary btn-block" value="Add New School">
+                                                                    <input type="submit" class="btn btn-grd-primary btn-block" value="Update Profile">
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                                 <!-- <p class="text-inverse text-left"><a href="index.php"><b class="f-w-600">Staff Login</b></a></p> -->
-                                <p ><span class="text-inverse text-left"><a href="index.php">Staff Login</span> <span class="text-inverse text-right" style="margin-left:50%;"><a href="admin.php">Admin Login</a></span></p>
+                                <p ><span class="text-inverse text-left"><a href="index.php">School Login</span> <span class="text-inverse text-right" style="margin-left:50%;"><a href="admin.php">Admin Login</a></span></p>
 
                                 <!-- <div class="row">
                                     <div class="col-md-10">

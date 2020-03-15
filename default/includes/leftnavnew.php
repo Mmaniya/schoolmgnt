@@ -52,7 +52,7 @@
                                 </a>
                                 </li>
                             </ul>
-                            <div class="pcoded-navigatio-lavel">PG</div>
+                            <!-- <div class="pcoded-navigatio-lavel">PG</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu">
                                 <a href="pg_preference.php?myid=<?php echo $staffid; ?>">
@@ -75,7 +75,7 @@
                                 </a>
                                 </li>
                     
-                            </ul>
+                            </ul> -->
                
                         </div>
                     </nav>

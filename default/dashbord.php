@@ -105,8 +105,8 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">40+</h4>
-                                                                <h6 class="text-white m-b-0">Alive Staff</h6>
+                                                                <h4 class="text-white">400+</h4>
+                                                                <h6 class="text-white m-b-0">Active School</h6>
                                                             </div>
                                                             <div class="col-4 text-right">
                                                                 <canvas id="update-chart-1" height="50"></canvas>
@@ -123,8 +123,8 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">290+</h4>
-                                                                <h6 class="text-white m-b-0">PG Students</h6>
+                                                                <h4 class="text-white">3000+</h4>
+                                                                <h6 class="text-white m-b-0">Students</h6>
                                                             </div>
                                                             <div class="col-4 text-right">
                                                                 <canvas id="update-chart-2" height="50"></canvas>
@@ -141,8 +141,8 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">300+</h4>
-                                                                <h6 class="text-white m-b-0">UG Studnets</h6>
+                                                                <h4 class="text-white">22</h4>
+                                                                <h6 class="text-white m-b-0">Citys</h6>
                                                             </div>
                                                             <div class="col-4 text-right">
                                                                 <canvas id="update-chart-3" height="50"></canvas>
@@ -180,7 +180,7 @@
                                                 <figure class="effect-winston">
                                                     <img src="..\files\assets\images\light-box\l1.jpg" alt="img30">
                                                     <figcaption>
-                                                        <h2>College <span>Images</span></h2>
+                                                        <h2>School <span>Images</span></h2>
                                                         <p>
                                                             <a href="#"><i class="fa fa-fw fa-star-o"></i></a>
                                                             <a href="#"><i class="fa fa-fw fa-comments-o"></i></a>
@@ -191,7 +191,7 @@
                                                 <figure class="effect-winston">
                                                     <img src="..\files\assets\images\light-box\l2.jpg" alt="img01">
                                                     <figcaption>
-                                                        <h2>College <span>Images</span></h2>
+                                                        <h2>School <span>Images</span></h2>
                                                         <p>
                                                             <a href="#"><i class="fa fa-fw fa-star-o"></i></a>
                                                             <a href="#"><i class="fa fa-fw fa-comments-o"></i></a>
@@ -225,7 +225,7 @@
                                                 </div>
                                             </div> -->
                                             <!--  sale analytics end -->
-<!-- 
+                                            <!-- 
                                             <div class="col-xl-8 col-md-12">
                                                 <div class="card table-card">
                                                     <div class="card-header">
@@ -602,8 +602,9 @@
 
                                         </div>
                                     </div>
+                                    
                                 </div>
-<!-- 
+                                <!-- 
                                 <div id="styleSelector">
 
                                 </div> -->

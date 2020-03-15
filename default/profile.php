@@ -20,7 +20,7 @@ $staffid = $_REQUEST['myid'];
 <html lang="en">
 
 <head>
-    <title>Staff Page </title>
+    <title>School Page </title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -121,7 +121,7 @@ $staffid = $_REQUEST['myid'];
                                         <div class="col-lg-8">
                                             <div class="page-header-title">
                                                 <div class="d-inline">
-                                                    <h4>My Profile</h4>
+                                                    <h4>My School Profile</h4>
                                                     <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
                                                 </div>
                                             </div>
@@ -132,9 +132,9 @@ $staffid = $_REQUEST['myid'];
                                                     <li class="breadcrumb-item">
                                                         <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Staff Profile</a>
+                                                    <li class="breadcrumb-item"><a href="#!">School Profile</a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Staff Profile</a>
+                                                    <li class="breadcrumb-item"><a href="#!">School Profile</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -162,7 +162,7 @@ $staffid = $_REQUEST['myid'];
                                                                     <div class="col-lg-12">
                                                                         <div class="user-title">
                                                                             <h2 style="text-transform: uppercase;"><?php echo $name; ?></h2>
-                                                                            <span class="text-white">Assistant Professor</span>
+                                                                            <!-- <span class="text-white">Assistant Professor</span> -->
                                                                         </div>
                                                                     </div>
                                                                     <div>
@@ -185,7 +185,7 @@ $staffid = $_REQUEST['myid'];
                                                 <div class="tab-header card">
                                                     <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist" id="mytab">
                                                         <li class="nav-item">
-                                                            <a class="nav-link active" data-toggle="tab" href="#personal" role="tab">Personal Info</a>
+                                                            <a class="nav-link active" data-toggle="tab" href="#personal" role="tab">School Info</a>
                                                             <div class="slide"></div>
                                                         </li>
                                                         <!-- <li class="nav-item">
@@ -226,17 +226,17 @@ $staffid = $_REQUEST['myid'];
                                                                                             <table class="table m-0">
                                                                                                 <tbody>
                                                                                                     <tr>
-                                                                                                        <th scope="row">Full Name</th>
+                                                                                                        <th scope="row">School Name</th>
                                                                                                         <td><?php echo $name; ?> </td>
                                                                                                     </tr>
                                                                                                     <tr>
-                                                                                                        <th scope="row">Experience</th>
+                                                                                                        <th scope="row">Years of Runnings</th>
                                                                                                         <td><?php echo $experience; ?></td>
                                                                                                     </tr>
                                                                                                     
                                                                                                     <tr>
-                                                                                                        <th scope="row">Marital Status</th>
-                                                                                                        <td>Single</td>
+                                                                                                        <th scope="row">Status</th>
+                                                                                                        <td>Active</td>
                                                                                                     </tr>
                                                                                                     <tr>
                                                                                                         <th scope="row">Address</th>
@@ -291,7 +291,7 @@ $staffid = $_REQUEST['myid'];
                                                                                 <form action="function/updatestaff.php" method="post" enctype="multipart/form-data">
                                                                                 <input type="hidden" name="staffid" value="<?php echo $id ?>">
                                                 `                                   <div class="form-group row">
-                                                                                        <label class="col-sm-2 col-form-label">Name</label>
+                                                                                        <label class="col-sm-2 col-form-label">School Name</label>
                                                                                         <div class="col-sm-10">
                                                                                             <input type="text" class="form-control" name="staffname" value="<?php echo $name; ?>">
                                                                                         </div>
@@ -333,7 +333,7 @@ $staffid = $_REQUEST['myid'];
                                                                                     </div> -->
                                                                                     
                                                                                     <div class="form-group row">
-                                                                                        <label class="col-sm-2 col-form-label">Year of Experience
+                                                                                        <label class="col-sm-2 col-form-label">Year of Running
                                                                                             </label>
                                                                                         <div class="col-sm-10">
                                                                                             <input type="text" class="form-control" name="experience" value="<?php echo $experience; ?>" >
@@ -360,7 +360,7 @@ $staffid = $_REQUEST['myid'];
                                                                                     <div class="row">
                                                                                         <div class="offset-lg-3 col-lg-6 col-md-12">
                                                                                             <div class="form-group">
-                                                                                                <input type="submit" class="btn btn-grd-primary btn-block" value="Add New Staff">
+                                                                                                <input type="submit" class="btn btn-grd-primary btn-block" value="Update info">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>

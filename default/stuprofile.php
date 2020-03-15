@@ -1,7 +1,8 @@
-<?php  include('../db/dpconfig.php');
-$staffid = $_REQUEST['id'];
+<?php   session_start();
+include('../db/dpconfig.php');
+$staffid = $_REQUEST['myid'];
 
- $sql = "SELECT * FROM `staff` WHERE id='$staffid' AND status='1'";
+ $sql = "SELECT * FROM `students` WHERE id='$staffid' AND status='1'";
  $result = $conn->query($sql);										
  if ($result->num_rows > 0) {
      while($row = $result->fetch_assoc()) {
@@ -10,17 +11,15 @@ $staffid = $_REQUEST['id'];
          $email = $row['email'];
          $mobile = $row['mobile'];
          $address = $row['address'];
-         $experience = $row['experience'];
          $imageURL = 'function/uploads/'.$row['profile'];
      }
-    }
-    ?>
+    }?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Admin </title>
+    <title>Student Page </title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -103,12 +102,13 @@ $staffid = $_REQUEST['id'];
 <div id="pcoded" class="pcoded">
     <div class="pcoded-overlay-box"></div>
     <div class="pcoded-container navbar-wrapper">
-    <?php include('includes/topnav.php'); ?>
 
+    <?php include('includes/topnavstu.php'); ?>
+
+        <!-- Sidebar inner chat end-->
         <div class="pcoded-main-container">
             <div class="pcoded-wrapper">
-                
-            <?php include('includes/leftnav.php'); ?>
+            <?php include('includes/leftnavstu.php'); ?>
 
                 <div class="pcoded-content">
                     <div class="pcoded-inner-content">
@@ -121,7 +121,7 @@ $staffid = $_REQUEST['id'];
                                         <div class="col-lg-8">
                                             <div class="page-header-title">
                                                 <div class="d-inline">
-                                                    <h4>Schools Profile</h4>
+                                                    <h4>My Student Profile</h4>
                                                     <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
                                                 </div>
                                             </div>
@@ -132,9 +132,9 @@ $staffid = $_REQUEST['id'];
                                                     <li class="breadcrumb-item">
                                                         <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Schools Profile</a>
+                                                    <li class="breadcrumb-item"><a href="#!">Student Profile</a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Schools Profile</a>
+                                                    <li class="breadcrumb-item"><a href="#!">Student Profile</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -185,7 +185,7 @@ $staffid = $_REQUEST['id'];
                                                 <div class="tab-header card">
                                                     <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist" id="mytab">
                                                         <li class="nav-item">
-                                                            <a class="nav-link active" data-toggle="tab" href="#personal" role="tab">Schools Info</a>
+                                                            <a class="nav-link active" data-toggle="tab" href="#personal" role="tab">Student Info</a>
                                                             <div class="slide"></div>
                                                         </li>
                                                         <!-- <li class="nav-item">
@@ -210,7 +210,7 @@ $staffid = $_REQUEST['id'];
                                                         <!-- personal card start -->
                                                         <div class="card">
                                                             <div class="card-header">
-                                                                <h5 class="card-header-text">Update Schools Profile</h5>
+                                                                <h5 class="card-header-text">Update Me</h5>
                                                                 <button id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right">
                                                                     <i class="icofont icofont-edit"></i>
                                                                 </button>
@@ -226,13 +226,13 @@ $staffid = $_REQUEST['id'];
                                                                                             <table class="table m-0">
                                                                                                 <tbody>
                                                                                                     <tr>
-                                                                                                        <th scope="row">Schools Name</th>
+                                                                                                        <th scope="row">Student Name</th>
                                                                                                         <td><?php echo $name; ?> </td>
                                                                                                     </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">Running years</th>
+                                                                                                    <!-- <tr>
+                                                                                                        <th scope="row">Years of Runnings</th>
                                                                                                         <td><?php echo $experience; ?></td>
-                                                                                                    </tr>
+                                                                                                    </tr> -->
                                                                                                     
                                                                                                     <tr>
                                                                                                         <th scope="row">Status</th>
@@ -259,11 +259,11 @@ $staffid = $_REQUEST['id'];
                                                                                                         <th scope="row">Mobile Number</th>
                                                                                                         <td><?php echo $mobile; ?></td>
                                                                                                     </tr>
-                                                                                                 
+<!--                                                                                                  
                                                                                                     <tr>
-                                                                                                        <th scope="row">Skype</th>
+                                                                                                        <th scope="row">Contavt</th>
                                                                                                         <td>proff.skype</td>
-                                                                                                    </tr>
+                                                                                                    </tr> -->
                                                                                                     <tr>
                                                                                                         <th scope="row">Website</th>
                                                                                                         <td><a href="#!">www.admin.com</a></td>
@@ -291,7 +291,7 @@ $staffid = $_REQUEST['id'];
                                                                                 <form action="function/updatestaff.php" method="post" enctype="multipart/form-data">
                                                                                 <input type="hidden" name="staffid" value="<?php echo $id ?>">
                                                 `                                   <div class="form-group row">
-                                                                                        <label class="col-sm-2 col-form-label">Schools Name</label>
+                                                                                        <label class="col-sm-2 col-form-label">Student Name</label>
                                                                                         <div class="col-sm-10">
                                                                                             <input type="text" class="form-control" name="staffname" value="<?php echo $name; ?>">
                                                                                         </div>
@@ -333,10 +333,10 @@ $staffid = $_REQUEST['id'];
                                                                                     </div> -->
                                                                                     
                                                                                     <div class="form-group row">
-                                                                                        <label class="col-sm-2 col-form-label">Year of Runnings
+                                                                                        <label class="col-sm-2 col-form-label">Year of Running
                                                                                             </label>
                                                                                         <div class="col-sm-10">
-                                                                                            <input type="number" class="form-control" name="experience" value="<?php echo $experience; ?>" >
+                                                                                            <input type="text" class="form-control" name="experience" value="<?php echo $experience; ?>" >
                                                                                         </div>
                                                                                     </div>
                                                                                     
@@ -349,24 +349,131 @@ $staffid = $_REQUEST['id'];
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <!-- <div class="form-group row">
+                                                                                    <div class="form-group row">
                                                                                         <label class="col-sm-2 col-form-label">Password
                                                                                             </label>
                                                                                         <div class="col-sm-10">
-                                                                                            <input type="password" class="form-control" name="password"  >
+                                                                                            <input type="password" class="form-control" name="password" value="<?php echo $password ?>" >
                                                                                         </div>
-                                                                                    </div> -->
+                                                                                    </div>
                                                                                     
                                                                                     <div class="row">
                                                                                         <div class="offset-lg-3 col-lg-6 col-md-12">
                                                                                             <div class="form-group">
-                                                                                                <input type="submit" class="btn btn-grd-primary btn-block" value="Update School">
+                                                                                                <input type="submit" class="btn btn-grd-primary btn-block" value="Update info">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </form>
                                                 `                       
-                                                                    
+                                                                                    <!--<div class="col-lg-6">
+                                                                                        < <table class="table">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <div class="input-group">
+                                                                                                            <span class="input-group-addon"><i class="icofont icofont-user"></i></span>
+                                                                                                            <input type="text" class="form-control" placeholder="Full Name">
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <div class="form-radio">
+                                                                                                            <div class="group-add-on">
+                                                                                                                <div class="radio radiofill radio-inline">
+                                                                                                                    <label>
+                                                                                                <input type="radio" name="radio" checked=""><i class="helper"></i> Male
+                                                                                            </label>
+                                                                                                                </div>
+                                                                                                                <div class="radio radiofill radio-inline">
+                                                                                                                    <label>
+                                                                                                <input type="radio" name="radio"><i class="helper"></i> Female
+                                                                                            </label>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <input id="dropper-default" class="form-control" type="text" placeholder="Select Your Birth Date">
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <select id="hello-single" class="form-control">
+                                                                                                            <option value="">---- Marital Status ----</option>
+                                                                                                            <option value="married">Married</option>
+                                                                                                            <option value="unmarried">Unmarried</option>
+                                                                                                        </select>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <div class="input-group">
+                                                                                                            <span class="input-group-addon"><i class="icofont icofont-location-pin"></i></span>
+                                                                                                            <input type="text" class="form-control" placeholder="Address">
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table> 
+                                                                                    </div>-->
+                                                                                    <!-- end of table col-lg-6 -->
+                                                                                    <!-- <div class="col-lg-6">
+                                                                                        <table class="table">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <div class="input-group">
+                                                                                                            <span class="input-group-addon"><i class="icofont icofont-mobile-phone"></i></span>
+                                                                                                            <input type="text" class="form-control" placeholder="Mobile Number">
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <div class="input-group">
+                                                                                                            <span class="input-group-addon"><i class="icofont icofont-social-twitter"></i></span>
+                                                                                                            <input type="text" class="form-control" placeholder="Twitter Id">
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                                        <tr>
+                                                                                                    <td>
+                                                                                                        <div class="input-group">
+                                                                                                            <span class="input-group-addon" id="basic-addon1">@</span>
+                                                                                                            <input type="text" class="form-control" placeholder="Twitter Id">
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <div class="input-group">
+                                                                                                            <span class="input-group-addon"><i class="icofont icofont-social-skype"></i></span>
+                                                                                                            <input type="email" class="form-control" placeholder="Skype Id">
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        <div class="input-group">
+                                                                                                            <span class="input-group-addon"><i class="icofont icofont-earth"></i></span>
+                                                                                                            <input type="text" class="form-control" placeholder="website">
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div> -->
+                                                                                    <!-- end of table col-lg-6 -->
+                                                                                <!-- </div> -->
+                                                                                <!-- end of row -->
+                                                                                <!-- <div class="text-center">
+                                                                                    <a href="#!" class="btn btn-primary waves-effect waves-light m-r-20">Save</a>
+                                                                                    <a href="#!" id="edit-cancel" class="btn btn-default waves-effect">Cancel</a>
+                                                                                </div> -->
                                                                             </div>
                                                                             <!-- end of edit info -->
                                                                         </div>
@@ -382,7 +489,9 @@ $staffid = $_REQUEST['id'];
                                                   
                                                         <!-- personal card end-->
                                                     </div>
-                                                   
+                                                    <!-- tab pane personal end -->
+                                                  
+                                                    
                                                 </div>
                                                 <!-- tab content end -->
                                             </div>

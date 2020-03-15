@@ -6,7 +6,7 @@ $staffid = $_REQUEST['myid'];
 <html lang="en">
 
 <head>
-    <title>Staff Page </title>
+    <title>Student Page </title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -84,12 +84,12 @@ $staffid = $_REQUEST['myid'];
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
 
-        <?php include('includes/topnavnew.php'); ?>
+        <?php include('includes/topnavstu.php'); ?>
 
             <!-- Sidebar inner chat end-->
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
-                   <?php include('includes/leftnavnew.php'); ?>
+                   <?php include('includes/leftnavstu.php'); ?>
                     <div class="pcoded-content">
                         <div class="pcoded-inner-content">
                             <div class="main-body">

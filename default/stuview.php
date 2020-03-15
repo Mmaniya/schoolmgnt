@@ -2,10 +2,10 @@
 include('../db/dpconfig.php');
 $staffid = $_REQUEST['myid'];
 
- $sql1 = "SELECT * FROM `staff` WHERE id='$staffid' AND status='1'";
- $results = $conn->query($sql1);										
- if ($results->num_rows > 0) {
-     while($row = $results->fetch_assoc()) {
+ $sql = "SELECT * FROM `staff` WHERE id='$staffid' AND status='1'";
+ $result = $conn->query($sql);										
+ if ($result->num_rows > 0) {
+     while($row = $result->fetch_assoc()) {
          $name = $row["name"];	
          $id = $row["id"];	
          $email = $row['email'];
@@ -15,20 +15,15 @@ $staffid = $_REQUEST['myid'];
          $imageURL = 'function/uploads/'.$row['profile'];
      }
     }
+    
     ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Admin Page </title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-    <!-- Meta -->
+    <title>School Page </title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -104,12 +99,12 @@ $staffid = $_REQUEST['myid'];
 <div id="pcoded" class="pcoded">
     <div class="pcoded-overlay-box"></div>
     <div class="pcoded-container navbar-wrapper">
-    <?php include('includes/topnavnew.php'); ?>
+    <?php include('includes/topnavstu.php'); ?>
 
+        <!-- Sidebar inner chat end-->
         <div class="pcoded-main-container">
             <div class="pcoded-wrapper">
-                
-            <?php include('includes/leftnavnew.php'); ?>
+            <?php include('includes/leftnavstu.php'); ?>
 
                 <div class="pcoded-content">
                     <div class="pcoded-inner-content">
@@ -122,7 +117,7 @@ $staffid = $_REQUEST['myid'];
                                         <div class="col-lg-8">
                                             <div class="page-header-title">
                                                 <div class="d-inline">
-                                                    <h4>My Profile</h4>
+                                                    <h4>View School Status</h4>
                                                     <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
                                                 </div>
                                             </div>
@@ -133,9 +128,9 @@ $staffid = $_REQUEST['myid'];
                                                     <li class="breadcrumb-item">
                                                         <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Staff Profile</a>
+                                                    <li class="breadcrumb-item"><a href="#!">School Profile</a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Staff Profile</a>
+                                                    <li class="breadcrumb-item"><a href="#!">School Profile</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -151,35 +146,30 @@ $staffid = $_REQUEST['myid'];
                                             <div class="col-lg-12">
                                                 <div class="cover-profile">
                                                     <div class="profile-bg-img">
-                                                       <form action="#">
-
                                                         <img class="profile-bg-img img-fluid" src="..\files\assets\images\user-profile\bg-img1.jpg" alt="bg-img">
                                                         <div class="card-block user-info">
                                                             <div class="col-md-12">
                                                                 <div class="media-left">
                                                                     <a href="#" class="profile-image">
-                                                                        <img class="user-img img-radius" src="<?php echo (isset($imageURL)); ?>" width="100" height="120" alt="user-img">
+                                                                        <img class="user-img img-radius" src="<?php echo $imageURL; ?>" width="100" height="120" alt="user-img">
                                                                     </a>
                                                                 </div>
                                                                 <div class="media-body row">
                                                                     <div class="col-lg-12">
                                                                         <div class="user-title">
                                                                             <h2 style="text-transform: uppercase;"><?php echo $name; ?></h2>
-                                                                            <span class="text-white">Assistant Professor</span>
+                                                                            <!-- <span class="text-white">Assistant Professor</span> -->
                                                                         </div>
                                                                     </div>
                                                                     <div>
-                                                                    <?php if (isset($status) == '1' ){?>
                                                                         <div class="pull-right cover-btn">
-                                                                            <button type="button" class="btn btn-success m-r-10 m-b-5">Scheduled</button>
-                                                                            <!-- <button type="button" class="btn btn-success"><i class="icofont icofont-ui-messaging"></i> Message</button> -->
+                                                                            <button type="button" class="btn btn-primary m-r-10 m-b-5"><i class="icofont icofont-plus"></i> Follow</button>
+                                                                            <button type="button" class="btn btn-primary"><i class="icofont icofont-ui-messaging"></i> Message</button>
                                                                         </div>
-                                                                    <?php } ?>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                       </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,87 +177,63 @@ $staffid = $_REQUEST['myid'];
                                         <!--profile cover end-->
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <!-- tab header start -->
-                                                <div class="tab-header card">
-                                                    <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist" id="mytab">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link active" data-toggle="tab" href="#personal" role="tab">Personal Info</a>
-                                                            <div class="slide"></div>
-                                                        </li>
-                                                        <!-- <li class="nav-item">
-                                                            <a class="nav-link" data-toggle="tab" href="#binfo" role="tab">User's Services</a>
-                                                            <div class="slide"></div>
-                                                        </li> -->
-                                                        <!-- <li class="nav-item">
-                                                            <a class="nav-link" data-toggle="tab" href="#contacts" role="tab">User's Contacts</a>
-                                                            <div class="slide"></div>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" data-toggle="tab" href="#review" role="tab">Reviews</a>
-                                                            <div class="slide"></div>
-                                                        </li> -->
-                                                    </ul>
+                                                
+                                                <!-- tab header end -->
+                                                <!-- Default ordering table start -->
+                                                <div class="card">
+                                                <div class="card-header">
+                                                    <h5>Default Ordering</h5>
+                                                    <!-- <span>Lets say you want to sort the fourth column (3) descending and the first column (0) ascending: your order: would look like this: order: [[ 3, 'desc' ], [ 0, 'asc' ]]</span> -->
+
                                                 </div>
-
-
-                                                <!-- Page-body start -->
-                                                <div class="page-body">
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                        
-                                                            <!-- Default ordering table start -->
-                                                            <div class="card">
-                                                            
-                                                                <div class="card-block">
-                                                                    <div class="dt-responsive table-responsive">
-                                                                        <table id="order-table" class="table table-striped table-bordered nowrap">
-                                                                            <thead>
+                                                <div class="card-block">
+                                                    <div class="dt-responsive table-responsive">
+                                                        <table id="order-table" class="table table-striped table-bordered nowrap">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>No of Students</th>
+                                                                <th>No of Staff</th>
+                                                                <th>Running Years</th>
+                                                                <th>School Id</th>
+                                                                <th>Sector</th>
+                                                                <th>Education</th>
+                                                                <th>Popularity</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php 
+                                                                 $sql = "SELECT * FROM `ugpreference` WHERE staffid='$staffid' AND status='1'";
+                                                                 $result = $conn->query($sql);										
+                                                                 if ($result->num_rows > 0) {
+                                                                     while($row = $result->fetch_assoc()) {
+                                                                         $stuname = $row["stuname"];	
+                                                                         $id = $row["id"];	
+                                                                         $experience = $row['experience'];
+                                                                         $staffname = $row['staffname'];
+                                                                         $schoolid = $row['staffid'];
+                                                                         $selectyear = $row['selectyear'];
+                                                                         $selectedu = $row['selectedu'];
+                                                                         $popularity = $row['popularity']; 
+                                                                         ?>
+                                                                     
                                                                             <tr>
-                                                                                <th>Name</th>
-                                                                                <th>Year</th>
-                                                                                <th>Subject</th>
-                                                                                <th>Experience</th>
-                                                                                <th>Semester</th>
-                                                                                <th>Lab</th>
+                                                                                <td><?php echo $stuname; ?></td>
+                                                                                <td><?php echo $staffname; ?></td>
+                                                                                <td><?php echo $experience; ?></td>
+                                                                                <td><?php echo $schoolid; ?></td>
+                                                                                <td><?php echo $selectyear; ?></td>
+                                                                                <td><?php echo $selectedu; ?></td>
+                                                                                <td><?php echo $popularity; ?></td>
+
                                                                             </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                            <?php
-
-                                                                                    $sql = "SELECT * FROM `ugtimetable` WHERE `staffid`='$staffid'";
-                                                                                    $result = $conn->query($sql);										
-                                                                                    if ($result->num_rows > 0) {
-                                                                                        while($rows = $result->fetch_assoc()) {
-
-                                                                                                $subject = $rows["subject"];	
-                                                                                                $lab = $rows["lab"];	
-                                                                                                $dept = $rows['dept'];
-                                                                                                $year = $rows['year'];
-                                                                                                $sem = $rows['sem'];
-                                                                                                $status = $rows['status'];
-
-                                                                                                $imageURL = 'function/uploads/'.$rows['image'];
-                                                                                        
-
-                                                                                        echo "<tr><td>".$name."</td><td>".$year."</td><td>".$subject."</td><td>".$experience."</td><td>".$sem."</td><td>".$lab."</td></tr>";
-
-                                                                                    }
-
-                                                                                } 
-                                                                                ?>
-                                                                        
-                                                                        </tbody>
-                                                                    
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                    
-                                                        </div>
+                                                                     <?php } } ?>
+                                                        </tbody>
+                                                           
+                                                        </table>
                                                     </div>
                                                 </div>
-                                                <!-- Page-body end -->
-
+                                            </div>
+                                            <!-- Default ordering table end -->
                                             </div>
                                         </div>
                                     </div>

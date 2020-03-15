@@ -22,7 +22,7 @@ $staffid = $_REQUEST['myid'];
 <html lang="en">
 
 <head>
-    <title>Staff Page </title>
+    <title>School Page </title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -117,7 +117,7 @@ $staffid = $_REQUEST['myid'];
                                         <div class="col-lg-8">
                                             <div class="page-header-title">
                                                 <div class="d-inline">
-                                                    <h4>View Class Status</h4>
+                                                    <h4>View School Status</h4>
                                                     <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
                                                 </div>
                                             </div>
@@ -128,9 +128,9 @@ $staffid = $_REQUEST['myid'];
                                                     <li class="breadcrumb-item">
                                                         <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Staff Profile</a>
+                                                    <li class="breadcrumb-item"><a href="#!">School Profile</a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Staff Profile</a>
+                                                    <li class="breadcrumb-item"><a href="#!">School Profile</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -158,7 +158,7 @@ $staffid = $_REQUEST['myid'];
                                                                     <div class="col-lg-12">
                                                                         <div class="user-title">
                                                                             <h2 style="text-transform: uppercase;"><?php echo $name; ?></h2>
-                                                                            <span class="text-white">Assistant Professor</span>
+                                                                            <!-- <span class="text-white">Assistant Professor</span> -->
                                                                         </div>
                                                                     </div>
                                                                     <div>
@@ -191,14 +191,13 @@ $staffid = $_REQUEST['myid'];
                                                         <table id="order-table" class="table table-striped table-bordered nowrap">
                                                             <thead>
                                                             <tr>
-                                                                <th>Depr</th>
-                                                                <th>Year</th>
-                                                                <th>semester</th>
-                                                                <th>Subject1</th>
-                                                                <th>Subject2</th>
-                                                                <th>Subject3</th>
-                                                                <th>Lab</th>
-                                                                <th>Status</th>
+                                                                <th>No of Students</th>
+                                                                <th>No of Staff</th>
+                                                                <th>Running Years</th>
+                                                                <th>School Id</th>
+                                                                <th>Sector</th>
+                                                                <th>Education</th>
+                                                                <th>Popularity</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
@@ -207,28 +206,24 @@ $staffid = $_REQUEST['myid'];
                                                                  $result = $conn->query($sql);										
                                                                  if ($result->num_rows > 0) {
                                                                      while($row = $result->fetch_assoc()) {
-                                                                         $dept = $row["dept"];	
+                                                                         $stuname = $row["stuname"];	
                                                                          $id = $row["id"];	
-                                                                         $year = $row['year'];
-                                                                         $semester = $row['semester'];
-                                                                         $subject1 = $row['subject1'];
-                                                                         $subject2 = $row['subject2'];
-                                                                         $subject3 = $row['subject3'];
-                                                                         $lab = $row['lab']; 
+                                                                         $experience = $row['experience'];
+                                                                         $staffname = $row['staffname'];
+                                                                         $schoolid = $row['staffid'];
+                                                                         $selectyear = $row['selectyear'];
+                                                                         $selectedu = $row['selectedu'];
+                                                                         $popularity = $row['popularity']; 
                                                                          ?>
                                                                      
                                                                             <tr>
-                                                                                <td><?php echo $dept; ?></td>
-                                                                                <td><?php echo $year; ?></td>
-                                                                                <td><?php echo $semester; ?></td>
-                                                                                <td><?php echo $subject1; ?></td>
-                                                                                <td><?php echo $subject2; ?></td>
-                                                                                <td><?php echo $subject3; ?></td>
-                                                                                <td><?php echo $lab; ?></td>
-                                                                                <td> <div class="label-main">
-                                                                                        <label class="label label-warning">waiting</label>
-                                                                                     </div>
-                                                                                </td>
+                                                                                <td><?php echo $stuname; ?></td>
+                                                                                <td><?php echo $staffname; ?></td>
+                                                                                <td><?php echo $experience; ?></td>
+                                                                                <td><?php echo $schoolid; ?></td>
+                                                                                <td><?php echo $selectyear; ?></td>
+                                                                                <td><?php echo $selectedu; ?></td>
+                                                                                <td><?php echo $popularity; ?></td>
 
                                                                             </tr>
                                                                      <?php } } ?>
