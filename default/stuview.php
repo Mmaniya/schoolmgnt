@@ -1,8 +1,14 @@
 <?php   session_start();
 include('../db/dpconfig.php');
-$staffid = $_REQUEST['myid'];
+$staffid = $_REQUEST['staffid'];
+$stuname = $_REQUEST['stuname'];
+$staffname = $_REQUEST['staffname'];
+$experience = $_REQUEST['experience'];
+$selectyear = $_REQUEST['selectyear'];
+$selectedu = $_REQUEST['selectedu'];
+$popularity = $_REQUEST['popularity'];
 
- $sql = "SELECT * FROM `staff` WHERE id='$staffid' AND status='1'";
+$sql = "SELECT * FROM `students` WHERE id='$staffid' AND status='1'";
  $result = $conn->query($sql);										
  if ($result->num_rows > 0) {
      while($row = $result->fetch_assoc()) {
@@ -11,12 +17,9 @@ $staffid = $_REQUEST['myid'];
          $email = $row['email'];
          $mobile = $row['mobile'];
          $address = $row['address'];
-         $experience = $row['experience'];
          $imageURL = 'function/uploads/'.$row['profile'];
      }
-    }
-    
-    ?>
+    }?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -198,35 +201,45 @@ $staffid = $_REQUEST['myid'];
                                                                 <th>Sector</th>
                                                                 <th>Education</th>
                                                                 <th>Popularity</th>
+                                                                <th>Action</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
+                                                            
                                                                 <?php 
-                                                                 $sql = "SELECT * FROM `ugpreference` WHERE staffid='$staffid' AND status='1'";
-                                                                 $result = $conn->query($sql);										
+                                                                   $sql = "SELECT * FROM `ugpreference` JOIN staff ON ugpreference.staffid = staff.id  WHERE `stuname` >= '$stuname' && `staffname` >= '$staffname' && `yearsrun` = '$experience' && `selectyear`='$selectyear' && `selectedu`='$selectedu' && `popularity`='$popularity' && `active`='1'";
+                                                                    $result = $conn->query($sql);										
                                                                  if ($result->num_rows > 0) {
                                                                      while($row = $result->fetch_assoc()) {
+
                                                                          $stuname = $row["stuname"];	
                                                                          $id = $row["id"];	
                                                                          $experience = $row['experience'];
                                                                          $staffname = $row['staffname'];
-                                                                         $schoolid = $row['staffid'];
+                                                                         $name = $row['name'];
                                                                          $selectyear = $row['selectyear'];
                                                                          $selectedu = $row['selectedu'];
                                                                          $popularity = $row['popularity']; 
+
                                                                          ?>
                                                                      
                                                                             <tr>
                                                                                 <td><?php echo $stuname; ?></td>
                                                                                 <td><?php echo $staffname; ?></td>
                                                                                 <td><?php echo $experience; ?></td>
-                                                                                <td><?php echo $schoolid; ?></td>
+                                                                                <td><?php echo $name; ?></td>
                                                                                 <td><?php echo $selectyear; ?></td>
                                                                                 <td><?php echo $selectedu; ?></td>
                                                                                 <td><?php echo $popularity; ?></td>
 
+                                                                                <td><a href="function/applystu.php?schoolid=<?php echo $id ?>&&myid=<?php echo $staffid ?>">Apply</a></td>
                                                                             </tr>
-                                                                     <?php } } ?>
+                                                                     <?php  }} else {?>
+                                                                 
+                                                                        <tr>
+                                                                            <td COLSPAN="8">No Records Found.!</td>
+                                                                        </tr>
+                                                                   <?php } ?>
                                                         </tbody>
                                                            
                                                         </table>

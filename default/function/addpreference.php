@@ -12,7 +12,7 @@ $popularity = $_REQUEST['popularity'];
 
 $status = 1;
 
- $sql = "INSERT INTO `ugpreference`(`stuname`, `staffname`, `staffid`, `experience`, `selectyear`, `selectedu`, `popularity`, `status`) VALUES ('$stuname','$staffname','$staffid','$experience','$selectyear ','$selectedu','$popularity','$status')";
+ $sql = "INSERT INTO `ugpreference`(`stuname`, `staffname`, `staffid`, `yearsrun`, `selectyear`, `selectedu`, `popularity`, `active`) VALUES ('$stuname','$staffname','$staffid','$experience','$selectyear ','$selectedu','$popularity','$status')";
 $result = $conn->query($sql);
   
 if($result){

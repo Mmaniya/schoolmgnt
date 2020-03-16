@@ -40,7 +40,7 @@
             
         </li>
         <li class=" ">
-            <a href="stuview.php?myid=<?php echo $staffid; ?>">
+            <a href="stuapply.php?myid=<?php echo $staffid; ?>">
                 <span class="pcoded-micon"><i class="feather icon-edit-1"></i></span>
                 <span class="pcoded-mtext">View School</span>
             </a>

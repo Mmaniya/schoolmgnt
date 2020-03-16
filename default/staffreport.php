@@ -158,14 +158,14 @@ $staffid = $_REQUEST['myid'];
                                                             <div class="col-md-12">
                                                                 <div class="media-left">
                                                                     <a href="#" class="profile-image">
-                                                                        <img class="user-img img-radius" src="<?php echo (isset($imageURL)); ?>" width="100" height="120" alt="user-img">
+                                                                        <img class="user-img img-radius" src="<?php echo $imageURL; ?>" width="100" height="120" alt="user-img">
                                                                     </a>
                                                                 </div>
                                                                 <div class="media-body row">
                                                                     <div class="col-lg-12">
                                                                         <div class="user-title">
                                                                             <h2 style="text-transform: uppercase;"><?php echo $name; ?></h2>
-                                                                            <span class="text-white">Assistant Professor</span>
+                                                                            <!-- <span class="text-white">Assistant Professor</span> -->
                                                                         </div>
                                                                     </div>
                                                                     <div>
@@ -218,49 +218,55 @@ $staffid = $_REQUEST['myid'];
                                                             <!-- Default ordering table start -->
                                                             <div class="card">
                                                             
-                                                                <div class="card-block">
-                                                                    <div class="dt-responsive table-responsive">
-                                                                        <table id="order-table" class="table table-striped table-bordered nowrap">
-                                                                            <thead>
+                                                            <div class="card-block">
+                                                    <div class="dt-responsive table-responsive">
+                                                        <table id="order-table" class="table table-striped table-bordered nowrap">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Profile</th>
+                                                                <th>Student Name</th>
+                                                                <th>Email</th>
+                                                                <th>Mobile</th>
+                                                                <th>Address</th>
+                                                                <!-- <th>Action</th> -->
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            
+                                                                <?php 
+                                                                   $sql = "SELECT * FROM `schoolapplication` JOIN students ON schoolapplication.stu_id = students.id  WHERE `school_id`='$staffid'";
+                                                                    $result = $conn->query($sql);										
+                                                                 if ($result->num_rows > 0) {
+                                                                     while($row = $result->fetch_assoc()) {
+
+                                                                        $namestu = $row["name"];	
+                                                                        $id = $row["id"];	
+                                                                        $emailstu = $row['email'];
+                                                                        $mobilestu = $row['mobile'];
+                                                                        $addresstu = $row['address'];
+                                                                        $imageURLstu = 'function/uploads/'.$row['profile'];
+
+                                                                         ?>
+                                                                     
                                                                             <tr>
-                                                                                <th>Name</th>
-                                                                                <th>Year</th>
-                                                                                <th>Subject</th>
-                                                                                <th>Experience</th>
-                                                                                <th>Semester</th>
-                                                                                <th>Lab</th>
+                                                                                 <td><img src="<?php echo $imageURLstu; ?>" alt="" width="50" height="50"/></td>
+                                                                                <td><?php echo $namestu; ?></td>
+                                                                                <td><?php echo $emailstu; ?></td>
+                                                                                <td><?php echo $mobilestu; ?></td>
+                                                                                <td><?php echo $addresstu; ?></td>
+                                                                                <!-- <td><lable>Applyied</lable></td> -->
                                                                             </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                            <?php
-
-                                                                                    $sql = "SELECT * FROM `ugtimetable` WHERE `staffid`='$staffid'";
-                                                                                    $result = $conn->query($sql);										
-                                                                                    if ($result->num_rows > 0) {
-                                                                                        while($rows = $result->fetch_assoc()) {
-
-                                                                                                $subject = $rows["subject"];	
-                                                                                                $lab = $rows["lab"];	
-                                                                                                $dept = $rows['dept'];
-                                                                                                $year = $rows['year'];
-                                                                                                $sem = $rows['sem'];
-                                                                                                $status = $rows['status'];
-
-                                                                                                $imageURL = 'function/uploads/'.$rows['image'];
-                                                                                        
-
-                                                                                        echo "<tr><td>".$name."</td><td>".$year."</td><td>".$subject."</td><td>".$experience."</td><td>".$sem."</td><td>".$lab."</td></tr>";
-
-                                                                                    }
-
-                                                                                } 
-                                                                                ?>
-                                                                        
-                                                                        </tbody>
-                                                                    
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
+                                                                     <?php  }} else {?>
+                                                                 
+                                                                        <tr>
+                                                                            <td COLSPAN="8">No Records Found.!</td>
+                                                                        </tr>
+                                                                   <?php } ?>
+                                                        </tbody>
+                                                           
+                                                        </table>
+                                                    </div>
+                                                </div>
                                                             </div>
                                                     
                                                         </div>

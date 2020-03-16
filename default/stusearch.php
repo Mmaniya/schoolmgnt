@@ -148,7 +148,7 @@ $sql = "SELECT * FROM `staff` WHERE id='$staffid'";
                                                 </div>
                                                 <div class="card-block">
                                                     <h4 class="sub-title">Basic Details</h4>
-                                                    <form action="function/search.php" method="post" enctype="multipart/form-data">
+                                                    <form action="stuview.php?" method="post" enctype="multipart/form-data">
                                                     <input type="hidden" name="staffid" value="<?php echo $staffid; ?>">
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Number of Students</label>

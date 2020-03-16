@@ -2,7 +2,8 @@
 include('../db/dpconfig.php');
 $staffid = $_REQUEST['myid'];
 
- $sql = "SELECT * FROM `staff` WHERE id='$staffid' AND status='1'";
+
+$sql = "SELECT * FROM `students` WHERE id='$staffid' AND status='1'";
  $result = $conn->query($sql);										
  if ($result->num_rows > 0) {
      while($row = $result->fetch_assoc()) {
@@ -11,12 +12,9 @@ $staffid = $_REQUEST['myid'];
          $email = $row['email'];
          $mobile = $row['mobile'];
          $address = $row['address'];
-         $experience = $row['experience'];
          $imageURL = 'function/uploads/'.$row['profile'];
      }
-    }
-    
-    ?>
+    }?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -99,12 +97,12 @@ $staffid = $_REQUEST['myid'];
 <div id="pcoded" class="pcoded">
     <div class="pcoded-overlay-box"></div>
     <div class="pcoded-container navbar-wrapper">
-    <?php include('includes/topnavnew.php'); ?>
+    <?php include('includes/topnavstu.php'); ?>
 
+        <!-- Sidebar inner chat end-->
         <div class="pcoded-main-container">
             <div class="pcoded-wrapper">
-                
-            <?php include('includes/leftnavnew.php'); ?>
+            <?php include('includes/leftnavstu.php'); ?>
 
                 <div class="pcoded-content">
                     <div class="pcoded-inner-content">
@@ -184,7 +182,13 @@ $staffid = $_REQUEST['myid'];
                                                 <div class="card-header">
                                                     <h5>Default Ordering</h5>
                                                     <!-- <span>Lets say you want to sort the fourth column (3) descending and the first column (0) ascending: your order: would look like this: order: [[ 3, 'desc' ], [ 0, 'asc' ]]</span> -->
-
+                                                    <span>
+                                    <?php
+                                    if (isset($_SESSION['message']['success']) && $_SESSION['message']['success'] != '') {
+                                        echo $_SESSION['message']['success'];
+                                        unset($_SESSION['message']);
+                                    }
+                                    ?></span>
                                                 </div>
                                                 <div class="card-block">
                                                     <div class="dt-responsive table-responsive">
@@ -194,39 +198,49 @@ $staffid = $_REQUEST['myid'];
                                                                 <th>No of Students</th>
                                                                 <th>No of Staff</th>
                                                                 <th>Running Years</th>
-                                                                <th>School Id</th>
+                                                                <th>School Name</th>
                                                                 <th>Sector</th>
                                                                 <th>Education</th>
                                                                 <th>Popularity</th>
+                                                                <th>Action</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
+                                                            
                                                                 <?php 
-                                                                 $sql = "SELECT * FROM `ugpreference` WHERE staffid='$staffid' AND `active`='1'";
-                                                                 $result = $conn->query($sql);										
+                                                                   $sql = "SELECT * FROM `schoolapplication` JOIN ugpreference ON schoolapplication.school_id = ugpreference.staffid JOIN staff ON schoolapplication.school_id = staff.id  WHERE `stu_id`='$staffid'";
+                                                                    $result = $conn->query($sql);										
                                                                  if ($result->num_rows > 0) {
                                                                      while($row = $result->fetch_assoc()) {
+
                                                                          $stuname = $row["stuname"];	
                                                                          $id = $row["id"];	
-                                                                         $experience = $row['yearsrun'];
+                                                                         $experience = $row['experience'];
                                                                          $staffname = $row['staffname'];
-                                                                         $schoolid = $row['staffid'];
+                                                                         $name = $row['name'];
                                                                          $selectyear = $row['selectyear'];
                                                                          $selectedu = $row['selectedu'];
                                                                          $popularity = $row['popularity']; 
+
                                                                          ?>
                                                                      
                                                                             <tr>
                                                                                 <td><?php echo $stuname; ?></td>
                                                                                 <td><?php echo $staffname; ?></td>
                                                                                 <td><?php echo $experience; ?></td>
-                                                                                <td><?php echo $schoolid; ?></td>
+                                                                                <td><?php echo $name; ?></td>
                                                                                 <td><?php echo $selectyear; ?></td>
                                                                                 <td><?php echo $selectedu; ?></td>
                                                                                 <td><?php echo $popularity; ?></td>
 
+                                                                                <td><lable>Applyied</lable></td>
                                                                             </tr>
-                                                                     <?php } } ?>
+                                                                     <?php  }} else {?>
+                                                                 
+                                                                        <tr>
+                                                                            <td COLSPAN="8">No Records Found.!</td>
+                                                                        </tr>
+                                                                   <?php } ?>
                                                         </tbody>
                                                            
                                                         </table>
